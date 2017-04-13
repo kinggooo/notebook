@@ -1,0 +1,50 @@
+docker pull ubuntu
+docker pull ubuntu:14.04
+docker pull dl.dockerpool.com:5000/ubuntu:14.04
+
+
+docker tag dl.dockerpool.com:5000/ubuntu:14.04 myubuntu:latest
+
+docker inspect image_id
+
+docker inspect -f {{".Architecture"}} image_id
+
+docker search mysql
+
+docker rmi dl.dockerpool.com:5000/ubuntu:14.04
+docker rmi image_id
+docker rmi -f ubuntu
+
+
+docker commit -m "add file" -a "wangnz" image_id test1
+
+cat ubuntu.tar.gz | docker import - ubuntu:14.04
+
+docker save -o centos7.tar centos7
+docker load < centos7.tar
+
+docker tag test1:latest user/test1:latest
+docker push user/test1:latest
+
+
+docker create -it test1
+docker run = docker create + docker start
+
+docker run centos /bin/echo "hello"
+docker run -it centos /bin/bash
+docker run -d centos7 /bin/sh -c "while true;do echo helloworld;sleep 5;done"
+
+docker logs cid
+docker stop cid
+docker kill cid
+
+docker start cid
+
+docker run -itd centos7
+docker attach cid
+docker exec -it cid /bin/bash
+
+docker rm cid
+
+docker export cid > test.tar
+cat test.tar | docker import - test/centos7:latest
