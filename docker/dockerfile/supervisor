@@ -1,0 +1,11 @@
+FROM centos7:latest
+
+MAINTAINER wangnz wangnz@email.com
+
+#supervisor
+RUN yum install -y python-setuptools && yum clean all
+ADD supervisor-3.3.1.tar.gz
+RUN tar -xvf supervisor-3.3.1.tar.gz && cd supervisor-3.3.1 && python setup.py install && mkdir -p /etc/supervisor/
+COPY supervisord.conf /etc/supervisor/
+
+CMD ["/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]
