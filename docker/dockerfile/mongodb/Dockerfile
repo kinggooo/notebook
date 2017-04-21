@@ -2,7 +2,7 @@
 # version : wangnz/mongodb:v1
 # desc : 当前版本安装的mongodb
 ############################################
-#FROM birdben/tools:v1
+#FROM centos7:latest
 FROM sshd
 
 MAINTAINER wangnz wangnz@email.com
@@ -26,5 +26,7 @@ EXPOSE 30000
 
 CMD ["/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]
 
+
+#wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.4.3.tgz
 #docker build -t "mongodb" .
 #docker run -d -p 9999:22 -p 30000:30000 -v /opt/docker/mongodb:/mongodb --privileged=true mongo
