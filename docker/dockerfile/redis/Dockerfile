@@ -34,3 +34,6 @@ CMD ["/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]
 #wget http://download.redis.io/releases/redis-3.2.8.tar.gz
 #docker build -t redis .
 #docker run -d -p 9998:22 -p 16379:6379 -v /opt/docker/redis:/redis --privileged=true redis
+#systemctl stop firewalld.service 关闭centos7防火墙
+#systemctl disable firewalld.service 禁用centos7防火墙
+#systemctl restart docker.service
