@@ -1,0 +1,109 @@
+keys *
+dbsize
+exists key
+#Sting
+set key value
+get key
+del key
+expire key seconds
+ttl
+incr key
+decr key
+incrby key increment
+decrby key decrement
+incrbyfloat key increment
+mset k v k v k v
+mget a b c d
+append key value
+strlen key
+getset key value
+setrange key offset value
+getrange key start end
+object encoding key
+#hash
+hset key field value
+hget key field
+hdel key field
+hlen key
+hmset key field value field value
+hmget key field field
+hexists key field
+hkeys key
+hvals key
+hgetall key
+hincrby key field
+hincrbyfloat key field
+hstrlen key field
+#list
+rpush key value value value
+lrange key lindex llen
+lpush key value value value
+linsert key before|after pivot value
+lindex key index
+llen key
+lpop key
+rpop key
+lrem key count value count>0 从左往右删 count<0 反之。count=0全删。
+ltrim key start end
+lset key index newValue
+blpop key key key timeout
+rlpop key key key timeout
+lpush+lpop=栈
+lpush+rpop=队列
+lpush+brpop=消息队列
+
+#set
+sadd key value value
+srem key value value
+scard key
+sismember key value
+srandmember key count
+spop key count
+smembers key
+sinter key key
+sunion key key
+sdiff key key
+sinterstore destkey key key
+sunionstore destkey key key
+sdiffstore destkey key key
+
+#zset
+zadd key score member score member
+zcard key
+zscore key member
+zrank key member
+zrevrank key member
+zrem key member
+zincrby key increment member
+zrange key start end
+zrevrange key start end
+zrangebyscore key min max
+zrevrangebyscore key max min
+zcount key min max
+zremrangebyrank key start end
+zremrangebyscore key min max
+
+#key manage
+rename key newkey
+renamenx key newkey
+randomkey
+expire key seconds
+expireat key timestamp
+pexpire key milliseconds
+pexpireat timestamp
+persist key
+#迁移
+move key db
+dump key
+restore key ttl value
+migrate
+
+#遍历
+keys pattern
+scan
+
+#数据库管理
+select db
+flushdb/flushall
+
+
