@@ -1,0 +1,70 @@
+daemonize yes         ###daemon后台运行模式
+pidfile /var/run/redis.pid   ###pidfile
+port 6379   ###默认6379端口
+tcp-backlog 511   ###tcp三次握手等待确认ack最大的队列数
+bind 192.168.65.128 127.0.0.1  ###绑定的监听的ip,可同时写多个ip,不写默认监控0.0.0.0
+timeout 0  ###关闭空闲客户端,0为disable
+tcp-keepalive 0 ###是否开启tcp长连接,定义socket连接timeout时长
+loglevel notice  ###定义日志级别为notice(输出必要的日志)
+logfile "/var/log/redis/redis.log" ###定义日志输出目录
+databases 16  ###允许redis定义的最大的db簇
+###开启rdb并应用如下数据保存策略,aof和rdb可同时启用,aof强烈建议开启
+save 900 1
+save 300 10
+save 60 10000
+stop-writes-on-bgsave-error yes  ###有任何问题导致的bgsave失败都停止redis的对外服务
+rdbcompression yes  ###rdb写压缩
+rdbchecksum yes  ###rdb文件正确性检查
+dbfilename dump.rdb  ###rdb文件名称(dump.rdb可任意起)
+dir /var/lib/redis/     ###rdb文件写目录
+# slaveof <masterip> <masterport>    ###如果是slave需要写明master
+# masterauth <master-password>    ###master密码验证(因为redis基于内存,作用不大)
+slave-serve-stale-data no  ###如果master宕机,slave是否还正常对外服务no->停止服务
+slave-read-only yes    ###salve是否只读(默认只读)
+repl-diskless-sync no   ### Disk-backed 启动新进程写rdb到disk,然后增量传输到salves 方式二:Diskless 直接写salve sockers,而不用写disk,当网络好的时候建议使用,但因为用到的是M/S+哨兵的架构,随时可能会进行主从切换,这个方式暂时不用
+repl-diskless-sync-delay 5  ##每5s传输一次diskless开启后生效
+repl-ping-slave-period 3   ###slave每3s ping测试master是否存活
+repl-timeout 10      ###定义replicationtxuq  timeout时间,这里的时间要大于repl-ping-slave-period里的时间,不然后一直发生low traffic between the master and the slave问题
+repl-disable-tcp-nodelay no   ###yes 一条线40milliseconds发送一次数据包,意识着更小的tcp packets和更小的带宽去发送到slave,但在slave会有相应的数据延迟. No,刚相反.一般上我们期望是低延迟,所以最选择no是个不错的选择,但如果在复杂的网络情况或m/s之间有很多中继网络,这里建议修改为yes
+slave-priority 100  ###slave优先级别,数字越小优先级别越高,当master宕机时优先选取slave
+# min-slaves-to-write 3   ###当最少有3个slave延迟<= 10s时,master才正常提供服务
+# min-slaves-max-lag 10  ###当最少有3个slave延迟<= 10s时,master才正常提供服务
+maxmemory  1536000000   #1.5G   ###单位<bytes> ,redis最大占用内存数,当超过1.5G时redis会根据策略清理内存key
+#############6种清理策略
+# volatile-lru -> remove the key with an expire set using an LRU algorithm ##推荐使用
+# allkeys-lru -> remove any key according to the LRU algorithm
+# volatile-random -> remove a random key with an expire set
+# allkeys-random -> remove a random key, any key
+# volatile-ttl -> remove the key with the nearest expire time (minor TTL)
+# noeviction -> don't expire at all, just return an error on write operations
+maxmemory-policy volatile-lru  ###使用LRU算法清理过期key
+# maxmemory-samples 3  ###LRU算法和TTL算法均为模糊算法,该精确算法redis会选择3个keys选择最少使用的一个key进行删除, 个人不建议使用
+appendonly yes   ###aof持久化,增量写disk,比aof慢,但更可靠.企业的默认选择,有的会两者均开启
+appendfilename "appendonly.aof"  ###aof文件名
+# appendfsync always
+appendfsync everysec   ###建议使用该方式
+# appendfsync no
+no-appendfsync-on-rewrite no  ##建议no, 主要用来缓和redis调用fsync()写数据时间长的问题.当BGSAVE或BGREWRITEAOF被调用期间,fsync()进程将阻止被调用,即相当于
+auto-aof-rewrite-percentage 100   ###当文件大小达到64mb的100%大小时开始rewrite aof文件
+auto-aof-rewrite-min-size 64mb   ###当文件大小达到64mb的100%大小时开始rewrite aof文件
+aof-load-truncated yes   ###当aof文件被损坏时,redis将返回错误并退出
+lua-time-limit 5000   ###LUA scripts最大执行时间,单位(milliseconds),超出后返回查询错误并写日志
+slowlog-log-slower-than 10000 ###单位microseconds(毫秒) 1000000 microseconds=1 s,记录执行时长超过10000 microseconds的执行命令
+slowlog-max-len 128  ###最大长度为128
+latency-monitor-threshold 0   ###监控相关,关闭就好
+notify-keyspace-events ""   ###空表示关闭,发布相关key的操作记录到所有 client
+######下面是高级设置,个人保持为默认配置
+hash-max-ziplist-entries 512
+hash-max-ziplist-value 64
+list-max-ziplist-entries 512
+list-max-ziplist-value 64
+set-max-intset-entries 512
+zset-max-ziplist-entries 128
+zset-max-ziplist-value 64
+hll-sparse-max-bytes 3000
+activerehashing yes
+client-output-buffer-limit normal 0 0 0
+client-output-buffer-limit slave 256mb 64mb 60
+client-output-buffer-limit pubsub 32mb 8mb 60
+hz 10
+aof-rewrite-incremental-fsync yes

@@ -1,0 +1,45 @@
+#sublime3设置
+配置插件
+import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())
+必备插件：
+AutoFileName：自动补全文件名
+Emmet：神器啊，花10分钟学学语法，让你提升10倍编码速度：http://blog.wpjam.com/m/emmet-grammar/
+Go-To-Css-Declaration：跳转到css的定义处
+JsFormat：格式化js代码
+Tag：貌似是可以补全和格式化html标签
+Themr：主题选择
+Autoprefixer：自动添加浏览器兼容前缀
+CodeFormatter：代码格式化
+ConvertToUTF8：解决中文编码问题
+SublimeLinter：代码提示高亮
+Terminal：唤起终端控制台
+
+{
+    "default_encoding": "UTF-8",
+    "font_face": "Microsoft YaHei UI",
+    "font_size": 12,
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "line_padding_bottom": 1,
+    "line_padding_top": 1,
+    "tab_size": 2,
+    "theme": "Soda Dark 3.sublime-theme",
+    "update_check": false,
+    "word_wrap": false
+}
+
+激活码：
+
+Andrew Weber
+Single User License
+EA7E-855605
+813A03DD 5E4AD9E6 6C0EEB94 BC99798F
+942194A6 02396E98 E62C9979 4BB979FE
+91424C9D A45400BF F6747D88 2FB88078
+90F5CC94 1CDC92DC 8457107A F151657B
+1D22E383 A997F016 42397640 33F41CFC
+E1D0AE85 A0BBD039 0E9C8D55 E1B89D5D
+5CDB7036 E56DE1C0 EFCC0840 650CD3A6
+B98FC99C 8FAC73EE D2B95564 DF450523
