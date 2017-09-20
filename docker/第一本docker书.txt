@@ -1,0 +1,57 @@
+#运行
+docker run --name cname -i -t image_id /bin/bash
+
+docker run -d 38c7 /bin/sh -c "while true;do echo hello world;sleep 5;done"
+
+docker run -d -p 8081:80 --name ngx01 93ff nginx -g "daemon off;"
+docker run -d -p 127.0.0.1:8081:80 --name ngx02 93ff nginx -g "daemon off;"
+docker run -d -p 127.0.0.1::80 --name ngx01 93ff nginx -g "daemon off;"
+
+#启动容器
+docker start cname
+
+#重启容器
+docker restart cname
+
+#查看容器日志
+docker logs cname
+docker logs -f cname
+docker logs --tail 10 cname
+docker logs --tail 0 -f cname
+docker logs -f -t cname
+
+#查看容器内进程
+docker top cname
+
+#在容器内运行进程
+docker exec -d cname touch /etc/newfile
+docker exec -i -t cname /bin/bash
+
+#停止运行的容器
+docker stop cname
+
+#获取容器更多信息
+docker inspect cname
+
+#删除容器
+docker rm cname
+docker rm `docker ps -a -q`
+
+#用commit创建镜像
+docker commit cid new_cname
+
+#用dockerfile创建镜像
+RUN apt-get update 运行一个命令
+ENV EVN_NAME EVN_VALUE 设置一个环境变量
+EXPOSE 80 暴露80端口
+CMD ["","",""] 默认运行命令
+ENTRYPOINT ["","",""] 默认运行命令
+WORKDIR /opt/webapp 设置工作目录
+ENV xxx yyy 设置环境变量
+USER 设置运行时的用户身份
+docker build -t="ubt/nginx:v1" .
+docker build --no-cache -t="ubt/nginx:v1" .
+#查看镜像构建过程
+docker history cname
+#查看端口映射
+docker port

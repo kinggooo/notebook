@@ -78,3 +78,7 @@ chkconfig --add mysqld #增加mysqld服务
 chkconfig --list    #列出所有的系统服务
 chkconfig --level 345 mysqld on
 #设定mysqld在等级345为开机运行服务
+
+#启动
+docker run --name mysql-server1 -v /Users/wangnz/data/mysql/mysql-server1:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root1234 -d daocloud.io/library/mysql:5.7.15
+docker run -it --link mysql-server1:mysql --rm daocloud.io/library/mysql:5.7.15 sh -c 'exec mysql -h"127.0.0.1" -P"3306" -uroot -p"root1234"'
