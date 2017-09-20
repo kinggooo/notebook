@@ -7,18 +7,38 @@ vi ifcfg-ens33
 编辑
 TYPE=Ethernet
 BOOTPROTO=static
+DNS1=192.168.182.2
+DNS2=201.96.209.133
 DEFROUTE=yes
 PEERDNS=yes
 PEERROUTES=yes
+IPV4_FAILURE_FATAL=no
 IPV6INIT=no
+IPV6_AUTOCONF=no
+IPV6_DEFROUTE=no
+IPV6_FAILURE_FATAL=no
 NAME=ens33
-UUID=aaaee87a-15e5-4052-9358-7866636db1c5
+UUID=aaaee87a-15e5-4052-9358-7866636db1c1
 DEVICE=ens33
 ONBOOT=yes
-IPADDR=192.168.182.130
-NETMASK=255.255.255.0
-DNS=192.168.182.1
-NM_CONTROLLED=yes
+NM_CONTROLLED=no
+
+IPADDR=192.168.182.129
+PREFIX=24
+GATEWAY=192.168.182.2
+IPV6_PEERDNS=no
+IPV6_PEERROUTES=no
+
+
 
 输入service network restart重启服务,亦可输入systemctl restart netwrok
+###########################################################################
+
+###########################################################################
+#设置防火墙
+1、关闭firewall：
+firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，开启后显示running）
+systemctl stop firewalld.service #停止firewall
+systemctl disable firewalld.service #禁止firewall开机启动
+
 ###########################################################################
