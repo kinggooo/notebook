@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 视口，屏幕的宽度1：1，不允许缩放 -->
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <!--  浏览器不缓存，每次都去服务器拉取 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <!-- 不自动识别手机号码 -->
+    <meta name="format-detection" content="telephone=no" >
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+    <body>
+        <div id="app-1">
+          <h1>{{ msg1 }}</h1>
+        </div>
+        <script type="text/javascript">
+            var app1 = new Vue({
+              el: '#app-1',
+              data: {
+                msg1: 'Hello world, I am Vue.js'
+              }
+            })
+        </script>
+        
+        <div id="app-2">
+          <h1>Your input is {{ msg2 }}</h1>
+          <input type="text" v-model="msg2">
+        </div>
+        <script type="text/javascript">
+          var app2 = new Vue({
+            el: '#app-2',
+            data: {
+              msg2: 'Hello world, I am Vue.js'
+            }
+          })
+        </script>
+        
+        <div id="app-3">
+          <msg3 content='My Lable'></msg3>
+        </div>
+        <script type="text/javascript">
+          var obj_msg3 = Vue.extend({
+            props : ['content'],
+            template : '<h1>{{content}}</h1>'
+          });
+          Vue.component('msg3',obj_msg3);
+          var vm = new Vue({
+            el: '#app-3'
+          });
+        </script>
+        
+        <div id="app-4">
+          <button v-on:click="alert">app-4</button>
+        </div>
+        <script type="text/javascript">
+          new Vue({
+            el: '#app-4',
+            data : {a : 1},
+            methods : {
+              alert : function() {
+                alert(this.a);
+              }
+            }
+          });
+        </script>
+        
+        <div id="app-5">
+          <button v-on:click="alert">app-5</button>
+        </div>
+        <script type="text/javascript">
+          var vm = new Vue({
+            el: '#app-5',
+            data : { a : 2 },
+            created : function() {
+                console.log('created')
+            }
+          });
+        </script>
+        
+        <div id="app-6">
+          <button v-on:click="alert">app-6</button>
+        </div>
+        <script type="text/javascript">
+          var vm = new Vue({
+            el: '#app-6',
+            data : {
+              id : 1,
+              index : 0,
+              name : 'Vue',
+              avatar : 'http://......',
+              count : [1,2,3,4,5],
+              names : ['Vue1.0', 'Vue2.0'],
+              items : [
+                { name : 'Vue1.0', version : '1.0' },
+                { name : 'Vue1.1', version : '1.1' }
+              ]
+            }
+          });
+        </script>
+        
+        <div id="app-7">
+          <p>{{ firstName }}</p>
+          <p>{{ lastName }}</p>
+          <p>{{ fullName }}</p>
+        </div>
+        <script type="text/javascript">
+          var vm = new Vue({
+            el: '#app-7',
+            data : {
+              firstName : 'Gavin',
+              lastName : 'CLY'
+            },
+            computed : {
+              fullName : function () {
+                return this.firstName + ' ' + this.lastName
+              }
+            }
+          });
+        </script>
+        
+        <div id="app-8">
+          &yen;<input type="text" v-model="price">
+        </div>
+        <script type="text/javascript">
+          var vm = new Vue({
+            el: '#app-8',
+            data : {
+              cents : 100
+            },
+            computed : {
+              price : {
+                set : function (newValue) {
+                  this.cents = newValue*100;
+                },
+                get : function () {
+                  return (this.cents/100).toFixed(2)
+                }
+              }
+            }
+          });
+        </script>
+
+        <div id="app-9">
+          <input type="text" v-model="message"><br/>
+          <span>Your input is {{ message }}</span><br/>
+          <label><input type="radio" value="male" v-model="gender">男</label>
+          <label><input type="radio" value="female" v-model="gender">女</label>
+          <p>{{ gender }}</p>
+          <input type="checkbox" v-model="checked">
+          <span>checked : {{ checked }}</span><br/>
+          <label><input type="checkbox" value="1" v-model="multiChecked">1</label>
+          <label><input type="checkbox" value="2" v-model="multiChecked">2</label>
+          <label><input type="checkbox" value="3" v-model="multiChecked">3</label>
+          <p>multiChecked : {{ multiChecked.join('|') }}</p>
+
+        </div>
+        <script type="text/javascript">
+          var vm = new Vue({
+            el: '#app-9',
+            data : {
+              message : '',
+              gender : '',
+              checked : '',
+              multiChecked : [],
+              selected : '',
+              multiSelected : [],
+            }
+          });
+        </script>
+
+    </body>
+</html>
