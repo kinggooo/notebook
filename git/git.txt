@@ -1,0 +1,34 @@
+git config user.name "xxx"
+git config user.email "yyy@xxx.com"
+
+git config --global user.name "xxx"
+git config --global user.email "yyy@xxx.com"
+git config -l
+git config --unset --global user.name
+git config --global alias.show-graph 'log --graph --abbrev-commit --pretty=oneline'
+
+git add .
+git commit -m xxx
+
+git log
+git show id
+git show-branch --more=10
+
+git diff id1 id2
+
+git rm a.txt
+
+
+mv a.txt b.txt
+git rm a.txt
+git add b.txt
+
+git mv a.txt b.txt
+
+git clone gittest1 gittest2
+
+git cat-file -p id
+
+git rev-parse xxxxxxx
+
+git ls-files -s

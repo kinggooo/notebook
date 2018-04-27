@@ -201,5 +201,20 @@
           });
         </script>
         
+        <div id="app-11">
+          <div class="tab" v-bind:class="{'active' : active, 'unactive' : !active}"></div>
+          <div class="tab" v-bind:class="[classA, classB]"></div>
+        </div>
+        <script type="text/javascript">
+          var vm = new Vue({
+            el: '#app-11',
+            data : {
+              active : true,
+              classA : 'class-a',
+              classB : 'class-b'
+            }
+          });
+        </script>
+
     </body>
 </html>
