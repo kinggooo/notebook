@@ -13,6 +13,7 @@ git commit -m xxx
 git log
 git show id
 git show-branch --more=10
+git show --pretty=fuller
 
 git diff id1 id2
 
@@ -27,8 +28,14 @@ git mv a.txt b.txt
 
 git clone gittest1 gittest2
 
-git cat-file -p id
+git cat-file -p 3b18
 
-git rev-parse xxxxxxx
+git rev-parse 3b18
 
 git ls-files -s
+
+git write-tree
+git commit-tree
+
+git diff
+git diff --cached
