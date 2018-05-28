@@ -39,3 +39,6 @@ git commit-tree
 
 git diff
 git diff --cached
+
+git diff 13b60056 65275cd8 --name-only | xargs tar -cvf ../diff.tar
+git diff 13b60056 65275cd8 --name-only | xargs -t -i{} cp --parents {} ../update
