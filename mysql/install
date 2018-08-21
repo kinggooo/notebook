@@ -23,6 +23,7 @@ useradd -r -g mysql -s/bin/false mysql
 
 #修改mysql目录的拥有者和组。
 chown -R mysql:mysql ./
+chown -R root:wheel mysql
 
 #初始化MySQL，分两步：
 #第一步，bin/mysqld  注意后面给的参数，之一部会产生一个临时密码，保存，后面登录数据库要用到；
