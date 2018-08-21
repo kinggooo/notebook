@@ -50,6 +50,8 @@ service mysqld start
 ./mysql -u root -p -S /opt/mysql/run/mysqld.sock
 ./mysql -u root -p
 #修改默认密码
+./mysqladmin -u root -p password
+or
 set password=password('A123456');
 or set password for  'root'@localhost=password('xxxxxx');
 flush privileges;
