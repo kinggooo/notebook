@@ -10,6 +10,13 @@ git config --global alias.show-graph 'log --graph --abbrev-commit --pretty=oneli
 git add .
 git commit -m xxx
 
+git branch xxx 创建新分支
+git checkout xxx 切换到某分支
+git checkout -b xxx 创建并切换到新分支
+
+git branch -d xxx 删除分支
+git branch -D xxx 强制删除分支
+
 git log
 git show id
 git show-branch --more=10
