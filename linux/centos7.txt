@@ -41,4 +41,20 @@ firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，
 systemctl stop firewalld.service #停止firewall
 systemctl disable firewalld.service #禁止firewall开机启动
 
+
+
+第一种：
+先看下防火墙状态：firewall-cmd --state
+关闭防火墙再试试：systemctl stop firewalld.service
+
+第二种，不想关闭防火墙
+放开http服务 
+firewall-cmd --permanent --zone=public --add-service=http
+ firewall-cmd --permanent --zone=public --add-service=https
+重载 
+firewall-cmd --reload
+
+---------------------
+
+本文来自 fanren224 的CSDN 博客 ，全文地址请点击：https://blog.csdn.net/fanren224/article/details/75332487?utm_source=copy
 ###########################################################################
