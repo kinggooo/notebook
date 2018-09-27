@@ -5,7 +5,18 @@ git config --global user.name "xxx"
 git config --global user.email "yyy@xxx.com"
 git config -l
 git config --unset --global user.name
-git config --global alias.show-graph 'log --graph --abbrev-commit --pretty=oneline'
+git config --global alias.lg 'log --graph --abbrev-commit --pretty=oneline'
+git config --global alias.lg 'log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative'
+git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+git config --global alias.co 'checkout'
+git config --global alias.st 'status'
+git config --global alias.psm 'push origin master'
+git config --global alias.plm 'pull origin master'
+git config --global core.editor "vim" # 设置Editor使用vim
+git config --global color.ui true
+git config --global core.quotepath false # 设置显示中文文件名
+
+
 
 git add .
 git commit -m xxx
@@ -13,9 +24,24 @@ git commit -m xxx
 git branch xxx 创建新分支
 git checkout xxx 切换到某分支
 git checkout -b xxx 创建并切换到新分支
+git checkout v1.0 切换到某tag
+git checkout id 切换到某次提交
+git checkout filename 撤销未add的文件修改
+
+
+git stash 将当前分支未提交的代码暂存
+git stash list 列出已暂存的修改
 
 git branch -d xxx 删除分支
 git branch -D xxx 强制删除分支
+
+git clone gittest1 gittest2
+git clone https://github.com/kinggooo/git2.git
+git push origin master 把代码推送到远程仓库origin的master分支上
+
+
+git remote add origin https://github.com/kinggooo/git2.git 和远程的仓库进行关联
+
 
 git log
 git show id
@@ -23,6 +49,8 @@ git show-branch --more=10
 git show --pretty=fuller
 
 git diff id1 id2
+git diff branch1 branch2
+git diff --staged
 
 git rm a.txt
 
@@ -33,7 +61,7 @@ git add b.txt
 
 git mv a.txt b.txt
 
-git clone gittest1 gittest2
+
 
 git cat-file -p 3b18
 
