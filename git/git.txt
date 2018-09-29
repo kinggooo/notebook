@@ -41,8 +41,12 @@ git branch -D xxx 强制删除分支
 
 git clone gittest1 gittest2
 git clone https://github.com/kinggooo/git2.git git2 克隆远程仓库到本地取名为git2
-git push origin master 把代码推送到远程仓库origin的master分支上
+git push origin master(本地):master(远程) 把本地master分支推送到远程仓库origin的master分支上，默认往同名分支推送。
+git push origin master
 
+git push origin :master 推送本地的空分支去远程等于删除远程分支
+# 等同于
+git push origin --delete master
 
 git remote add origin https://github.com/kinggooo/git2.git 添加一个远程仓库的别名并进行关联
 git remote remove origin 删除一个远程仓库的
