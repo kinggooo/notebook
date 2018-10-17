@@ -1,0 +1,22 @@
+1.sudo rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+
+2.sudo yum install -y nginx
+
+3.sudo systemctl start nginx.service
+  sudo systemctl enable nginx.service
+
+
+
+启动：
+nginx
+nginx -c ../nginx.conf 指定目录配置文件启动
+nginx -t -c ../nginx.conf 检测指定目录配置文件
+nginx -v
+nginx -s reload
+停止：
+1.nginx -s stop
+2.nginx -s quit
+3.kill pid
+
+netstat tlnp
+
