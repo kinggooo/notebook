@@ -34,27 +34,45 @@ IPV6_PEERROUTES=no
 输入service network restart重启服务,亦可输入systemctl restart netwrok
 ###########################################################################
 
-###########################################################################
-#设置防火墙
-1、关闭firewall：
-firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，开启后显示running）
-systemctl stop firewalld.service #停止firewall
-systemctl disable firewalld.service #禁止firewall开机启动
+*******************************防火墙firewalld设置*******************************
+#安装防火墙
+yum install firewalld firewalld-config
 
+#开启端口
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --zone=public --add-port=443/tcp --permanent
+firewall-cmd --zone=public --add-port=22/tcp --permanent
+firewall-cmd --zone=public --add-port=21/tcp --permanent
+firewall-cmd --zone=public --add-port=53/udp --permanent
 
+#关闭端口
+firewall-cmd --zone=public --remove-port=80/tcp --permanent
+firewall-cmd --zone=public --remove-port=443/tcp --permanent
+firewall-cmd --zone=public --remove-port=22/tcp --permanent
+firewall-cmd --zone=public --remove-port=21/tcp --permanent
+firewall-cmd --zone=public --remove-port=53/udp --permanent
 
-第一种：
-先看下防火墙状态：firewall-cmd --state
-关闭防火墙再试试：systemctl stop firewalld.service
+#批量添加端口
+firewall-cmd --zone=public --add-port=4400-4600/udp --permanent
+firewall-cmd --zone=public --add-port=4400-4600/tcp --permanent
 
-第二种，不想关闭防火墙
-放开http服务 
+#启停firewall：
+systemctl status firewalld或者 firewall-cmd --state
+systemctl stop firewalld.service
+systemctl start firewalld.service
+systemctl disable firewalld.service
+systemctl enable firewalld.service
+
+#放开http服务 
 firewall-cmd --permanent --zone=public --add-service=http
- firewall-cmd --permanent --zone=public --add-service=https
-重载 
+firewall-cmd --permanent --zone=public --add-service=https
+
+#重新加载设置 
 firewall-cmd --reload
 
----------------------
+#查看端口
+firewall-cmd --permanent --list-port
 
-本文来自 fanren224 的CSDN 博客 ，全文地址请点击：https://blog.csdn.net/fanren224/article/details/75332487?utm_source=copy
-###########################################################################
+#查询端口开放情况
+firewall-cmd --query-port=80/tcp
+*******************************防火墙firewalld设置*******************************
