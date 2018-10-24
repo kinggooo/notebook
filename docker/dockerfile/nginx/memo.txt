@@ -1,0 +1,7 @@
+
+docker run -d -p 80:80 --name ng1 -v /home/wnz/nginx/html:/usr/share/nginx/html -v /home/wnz/nginx/conf/nginx.conf:/home/nginx/nginx.conf -v /home/wnz/nginx/conf/conf.d:/etc/nginx/conf.d -v /home/wnz/nginx/log:/var/log/nginx nginx
+docker run -d -p 80:80 --name ng2 -v /home/wnz/nginx/html:/usr/share/nginx/html -v /home/wnz/nginx/conf/nginx.conf:/home/nginx/nginx.conf nginx
+
+chcon -Rt svirt_sandbox_file_t /home/wnz/nginx/html
+chcon -Rt svirt_sandbox_file_t /home/wnz/nginx/conf/conf.d
+chcon -Rt svirt_sandbox_file_t /home/wnz/nginx/log

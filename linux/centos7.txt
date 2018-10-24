@@ -44,6 +44,7 @@ firewall-cmd --zone=public --add-port=443/tcp --permanent
 firewall-cmd --zone=public --add-port=22/tcp --permanent
 firewall-cmd --zone=public --add-port=21/tcp --permanent
 firewall-cmd --zone=public --add-port=53/udp --permanent
+firewall-cmd --zone=public --add-port=3306/tcp --permanent
 
 #关闭端口
 firewall-cmd --zone=public --remove-port=80/tcp --permanent
