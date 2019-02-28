@@ -1,3 +1,22 @@
+#centos7安装docker
+1.yum update
+2.yum remove docker  docker-common docker-selinux docker-engine
+3.yum install -y yum-utils device-mapper-persistent-data lvm2
+4.yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+5.yum list docker-ce --showduplicates | sort -r
+6.yum install docker-ce.x86_64
+7.systemctl start docker
+8.systemctl enable docker
+9.yum list installed | grep docker
+
+#非root用户使用docker
+sudo groupadd docker
+sudo gpasswd -a ${USER} docker
+sudo systemctl restart docker
+
+
+
+
 nginx https://nginx.org/download/nginx-1.12.0.tar.gz
 
 docker pull ubuntu
