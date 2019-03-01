@@ -4,7 +4,11 @@ wget --no-cookies \
 "https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jre-8u201-linux-x64.tar.gz" \
 -O jre-8u201-linux-x64.tar.gz
 
-
+wget --no-cookies \
+--no-check-certificate \
+--header "Cookie: oraclelicense=accept-securebackup-cookie" \
+"https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz" \
+-O jdk-8u201-linux-x64.tar.gz
 
 #制作最小jre镜像
 tar -zxvf jre-8u201-linux-x64.tar.gz
