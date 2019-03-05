@@ -14,11 +14,6 @@ sudo groupadd docker
 sudo gpasswd -a ${USER} docker
 sudo systemctl restart docker
 
-
-
-
-nginx https://nginx.org/download/nginx-1.12.0.tar.gz
-
 docker pull ubuntu
 docker pull ubuntu:14.04
 docker pull dl.dockerpool.com:5000/ubuntu:14.04
