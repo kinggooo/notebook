@@ -9,8 +9,8 @@ chcon -Rt svirt_sandbox_file_t /home/wnz/nginx/log
 
 
 
-docker run -d -p 8081:80 --name ngc1  -v /home/wangnz/nginx:/opt/nginx -v /home/wangnz/nginx/nginx.conf:/etc/nginx/nginx.conf kinggooo/nginx
-
+docker run -d -p 80:80 -p 443:443 --name ngx1  -v /home/wangnz/data/nginx:/opt/nginx -v /home/wangnz/data/nginx/nginx.conf:/etc/nginx/nginx.conf kinggooo/nginx
+docker run -d -p 8081:80 --name ngx2  -v /home/wangnz/data/nginx:/opt/nginx -v /home/wangnz/data/nginx/nginx.conf:/etc/nginx/nginx.conf kinggooo/nginx
 *******************************命令*******************************
 查看Nginx的版本号：nginx -V
 启动Nginx：start nginx

@@ -91,7 +91,13 @@ firewall-cmd --reload
 
 #查看端口
 firewall-cmd --permanent --list-port
+firewall-cmd --list-all
+
 
 #查询端口开放情况
 firewall-cmd --query-port=80/tcp
+
+sudo firewall-cmd --permanent --zone=trusted --add-interface=docker0
+sudo firewall-cmd --permanent --zone=trusted --add-port=9090/tcp
+sudo firewall-cmd --reload
 *******************************防火墙firewalld设置*******************************
