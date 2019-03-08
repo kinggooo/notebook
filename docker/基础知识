@@ -1,0 +1,2231 @@
+返回主页
+散尽浮华
+安寻安放，不卑不亢；重剑无锋，大巧不工！
+博客园首页新随笔联系管理订阅订阅
+随笔- 551  文章- 0  评论- 579
+Docker容器学习梳理--基础知识（2）
+
+
+之前已经总结了Docker容器学习梳理--基础知识（1），但是不够详细，下面再完整补充下Docker学习的一些基础。
+
+Docker是个什么东西
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+Docker是一个程序运行、测试、交付的开放平台，Docker被设计为能够使你快速地交付应用。
+在Docker中，你可以将你的程序分为不同的基础部分，对于每一个基础部分都可以当做一个应用程序来管理。
+Docker能够帮助你快速地测试、快速地编码、快速地交付，并且缩短你从编码到运行应用的周期。
+
+Docker使用轻量级的容器虚拟化平台，并且结合工作流和工具，来帮助你管理、部署你的应用程序。
+Docker在其核心，Docker实现了让几乎任何程序都可以在一个安全、隔离的容器中运行。安全和隔离可以使你可以同时在机器上运行多个容器。
+Docker容器轻量级的特性，意味着你可以得到更多的硬件性能。
+
+围绕着Docker容器的虚拟化工具和平台，可以在以下几个方面为你提供帮助：
+1）帮助你把应用程序(包括其余的支持组件)放入到Docker容器中。
+2）分发和转移你的容器至你的团队其它成员来进行进一步的开发和测试。
+3）部署这些应用程序至你的生产环境，不论是本地的数据中心还是云平台。
+Docker的用途
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+1）快速交付你的应用程序
+Docker可以为你的开发过程提供完美的帮助。Docker允许开发者在本地包含了应用程序和服务的容器进行开发，之后可以集成到连续的一体化和部署工作流中。
+举个例子，开发者们在本地编写代码并且使用Docker和同事分享其开发栈。当开发者们准备好了之后，他们可以将代码和开发栈推送到测试环境中，在该环境进行一切所需要的测试。从测试环境中，你可以将Docker镜像推送到服务器上进行部署。
+
+2）开发和拓展更加简单
+Docker的以容器为基础的平台允许高度可移植的工作。Docker容器可以在开发者机器上运行，也可以在实体或者虚拟机上运行，也可以在云平台上运行。
+Docker的可移植、轻量特性同样让动态地管理负载更加简单。你可以用Docker快速地增加应用规模或者关闭应用程序和服务。Docker的快速意味着变动几乎是实时的。
+
+3）达到高密度和更多负载
+Docker轻巧快速，它提供了一个可行的、符合成本效益的替代基于虚拟机管理程序的虚拟机。这在高密度的环境下尤其有用。例如，构建你自己的云平台或者PaaS，在中小的部署环境下同样可以获取到更多的资源性能。
+Docker的主要组成
+
+1
+2
+3
+Docker有两个主要的部件：
+Docker:     开源的容器虚拟化平台。
+Docker Hub: 用于分享、管理Docker容器的Docker SaaS平台。
+Docker的架构
+
+1
+2
+3
+4
+Docker使用客户端-服务器(client-server)架构模式。
+Docker 客户端会与Docker守护进程进行通信。Docker 守护进程会处理复杂繁重的任务，例如建立、运行、发布你的 Docker 容器。
+Docker 客户端和守护进程可以运行在同一个系统上，当然也可以使用Docker客户端去连接一个远程的 Docker 守护进程。
+Docker 客户端和守护进程之间通过socket或者RESTful API进行通信。
+
+
+1）Docker守护进程
+如上图所示，Docker守护进程运行在一台主机上。用户并不直接和守护进程进行交互，而是通过 Docker 客户端间接和其通信。
+
+2）Docker 客户端
+Docker 客户端，实际上是 docker 的二进制程序，是主要的用户与 Docker 交互方式。它接收用户指令并且与背后的 Docker 守护进程通信，如此来回往复。
+
+3）Docker 内部
+要理解 Docker 内部构建，需要理解以下三种部件：
+Docker 镜像 - Docker images
+Docker 仓库 - Docker registeries
+Docker 容器 - Docker containers
+
+1
+2
+3
+4
+5
+6
+7
+8
+Docker 镜像
+Docker 镜像是Docker容器运行时的只读模板，每一个镜像由一系列的层 (layers) 组成。Docker 使用 UnionFS 来将这些层联合到单独的镜像中。UnionFS 允许独立文件系统中的文件和文件夹(称之为分支)被透明覆盖，形成一个单独连贯的文件系统。正因为有了这些层的存在，Docker 是如此的轻量。当你改变了一个 Docker 镜像，比如升级到某个程序到新的版本，一个新的层会被创建。因此，不用替换整个原先的镜像或者重新建立(在使用虚拟机的时候你可能会这么做)，只是一个新 的层被添加或升级了。现在你不用重新发布整个镜像，只需要升级，层使得分发 Docker 镜像变得简单和快速。
+
+Docker 仓库
+Docker 仓库用来保存镜像，可以理解为代码控制中的代码仓库。同样的，Docker 仓库也有公有和私有的概念。公有的 Docker 仓库名字是 Docker Hub。Docker Hub 提供了庞大的镜像集合供使用。这些镜像可以是自己创建，或者在别人的镜像基础上创建。Docker 仓库是 Docker 的分发部分。
+
+Docker 容器
+Docker 容器和文件夹很类似，一个Docker容器包含了所有的某个应用运行所需要的环境。每一个 Docker 容器都是从 Docker 镜像创建的。Docker 容器可以运行、开始、停止、移动和删除。每一个 Docker 容器都是独立和安全的应用平台，Docker 容器是 Docker 的运行部分。
+4）libcontainer
+Docker 从 0.9 版本开始使用 libcontainer 替代 lxc，libcontainer 和 Linux 系统的交互图如下：
+
+
+
+5）命名空间「Namespaces」
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+1）pid namespace
+不同用户的进程就是通过pid namespace隔离开的，且不同 namespace 中可以有相同 PID。
+具有以下特征:
+每个namespace中的pid是有自己的pid=1的进程(类似 /sbin/init 进程)
+每个 namespace 中的进程只能影响自己的同一个 namespace 或子 namespace 中的进程
+因为 /proc 包含正在运行的进程，因此在 container 中的 pseudo-filesystem 的 /proc 目录只能看到自己namespace 中的进程
+因为 namespace 允许嵌套，父 namespace 可以影响子 namespace 的进程，所以子 namespace 的进程可以在父namespace中看到，但是具有不同的 pid
+
+2）mnt namespace
+类似 chroot，将一个进程放到一个特定的目录执行。mnt namespace 允许不同namespace的进程看到的文件结构不同，这样每个namespace 中的进程所看到的文件目录就被隔离开了。同 chroot 不同，每个 namespace 中的 container 在 /proc/mounts 的信息只包含所在namespace的mount point。
+
+3）net namespace
+网络隔离是通过 net namespace 实现的， 每个 net namespace 有独立的 network devices, IP addresses, IP routing tables, /proc/net 目录。这样每个 container 的网络就能隔离开来。 docker 默认采用 veth 的方式将 container 中的虚拟网卡同 host 上的一个 docker bridge 连接在一起。
+
+4）uts namespace
+UTS ("UNIX Time-sharing System") namespace 允许每个 container 拥有独立的 hostname 和 domain name, 使其在网络上可以被视作一个独立的节点而非 Host 上的一个进程。
+
+5）ipc namespace
+container 中进程交互还是采用 Linux 常见的进程间交互方法 (interprocess communication - IPC), 包括常见的信号量、消息队列和共享内存。然而同 VM 不同，container 的进程间交互实际上还是 host 上具有相同 pid namespace 中的进程间交互，因此需要在IPC资源申请时加入 namespace 信息 - 每个 IPC 资源有一个唯一的 32bit ID。
+
+6）user namespace
+每个 container 可以有不同的 user 和 group id, 也就是说可以以 container 内部的用户在 container 内部执行程序而非 Host 上的用户。
+
+有了以上6种namespace从进程、网络、IPC、文件系统、UTS 和用户角度的隔离，一个 container 就可以对外展现出一个独立计算机的能力，并且不同container从OS层面实现了隔离。然而不同 namespace 之间资源还是相互竞争的，仍然需要类似ulimit 来管理每个container所能使用的资源。
+6）资源配额「cgroups」
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+cgroups
+实现了对资源的配额和度量。 cgroups 的使用非常简单，提供类似文件的接口，在 /cgroup 目录下新建一个文件夹即可新建一个 group，在此文件夹中新建 task 文件，并将 pid 写入该文件，即可实现对该进程的资源控制。具体的资源配置选项可以在该文件夹中新建子 subsystem ，{子系统前缀}.{资源项} 是典型的配置方法， 如 memory.usageinbytes 就定义了该 group 在 subsystem memory 中的一个内存限制选项。
+另外，cgroups 中的 subsystem 可以随意组合，一个 subsystem 可以在不同的 group 中，也可以一个 group 包含多个 subsystem - 也就是说一个 subsystem。
+
+memory
+内存相关的限制
+
+cpu
+在 cgroup 中，并不能像硬件虚拟化方案一样能够定义 CPU 能力，但是能够定义 CPU 轮转的优先级，因此具有较高 CPU 优先级的进程会更可能得到 CPU 运算。 通过将参数写入 cpu.shares ,即可定义改 cgroup 的 CPU 优先级 - 这里是一个相对权重，而非绝对值
+
+blkio
+block IO 相关的统计和限制，byte/operation 统计和限制 (IOPS 等)，读写速度限制等，但是这里主要统计的都是同步 IO
+
+devices
+设备权限限制
+Docker的工作原理
+
+1
+2
+3
+1）可以建立一个容纳应用程序的容器。
+2）可以从Docker镜像创建Docker容器来运行应用程序。
+3）可以通过Docker Hub或者自己的Docker仓库分享Docker镜像。
+Docker镜像是如何工作的？
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+Docker镜像是Docker容器运行时的只读模板，每一个镜像由一系列的层(layers)组成；
+Docker使用UnionFS(联合文件系统)来将这些层联合到一二镜像中，UnionFS文件系统允许独立文件系统中的文件和文件夹(称之为分支)被透明覆盖，形成一个单独连贯的文件系统。
+
+正因为有了这些层(layers)的存在，Docker才会如此的轻量。当你改变了一个Docker镜像，比如升级到某个程序到新的版本，一个新的层会被创建。因此，不用替换整个原先的镜像或者重新建立(在使用虚拟机的时候你可能会这么做)，只是一个新的层被添加或升级了。所以你不用重新发布整个镜像，只需要升级。层使得分发Docker镜像变得简单和快速。
+
+每个镜像都是从一个基础的镜像开始的，比如ubuntu，一个基础的Ubuntu镜像，或者是Centos，一个基础的Centos镜像。你可以使用你自己的镜像作为新镜像的基础，例如你有一个基础的安装了Nginx的镜像，你可以使用该镜像来建立你的Web应用程序镜像。（Docker通常从Docker Hub获取基础镜像）
+
+Docker镜像从这些基础的镜像创建，通过一种简单、具有描述性的步骤，我们称之为 指令(instructions)。
+每一个指令会在镜像中创建一个新的层，指令可以包含这些动作：
+1）运行一个命令。
+2）增加文件或者文件夹。
+3）创建一个环境变量。
+5）当运行容器的时候哪些程序会运行。
+
+这些指令存储在Dockerfile文件中。当你需要建立镜像的时候，Docker可以从Dockerfile中读取这些指令并且运行，然后返回一个最终的镜像。
+Docker仓库是如何工作的？
+
+1
+Docker仓库是Docker镜像的存储仓库。可以推送镜像到Docker仓库中,然后在Docker客户端，可以从Docker仓库中搜索镜像。
+Docker容器是如何工作的？
+
+1
+2
+一个Docker容器包含了一个操作系统、用户添加的文件和元数据(meta-data)。每个容器都是从镜像建立的，镜像告诉Docker容器内包含了什么，当容器启动时运行什么程序，还有许多配置数据。
+Docker镜像是只读的，当Docker运行一个从镜像建立的容器，它会在镜像顶部添加一个可读写的层，应用程序可以在这里运行。
+当运行docker容器时发生了什么？
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+使用docker命令时，Docker客户端都告诉Docker守护进程运行一个容器。
+
+$ sudo docker run -i -t ubuntu /bin/bash
+可以来分析这个命令，Docker客户端使用docker命令来运行，run参数表明客户端要运行一个新的容器。
+Docker客户端要运行一个容器需要告诉Docker守护进程的最小参数信息是：
+1）这个容器从哪个镜像创建，这里是ubuntu，基础的Ubuntu镜像。
+2）在容器中要运行的命令，这里是/bin/bash，在容器中运行Bash shell。
+
+那么运行这个命令之后在底层发生了什么呢？
+按照顺序，Docker做了这些事情：
+1）拉取ubuntu镜像: Docker检查ubuntu镜像是否存在，如果在本地没有该镜像，Docker会从Docker Hub下载。如果镜像已经存在，Docker会使用它来创建新的容器。
+2）创建新的容器: 当Docker有了这个镜像之后，Docker会用它来创建一个新的容器。
+3）分配文件系统并且挂载一个可读写的层: 容器会在这个文件系统中创建，并且一个可读写的层被添加到镜像中。
+4）分配网络/桥接接口: 创建一个允许容器与本地主机通信的网络接口。
+5）设置一个IP地址: 从池中寻找一个可用的IP地址并且服加到容器上。
+6）运行你指定的程序: 运行指定的程序。
+7）捕获并且提供应用输出: 连接并且记录标准输出、输入和错误让你可以看到你的程序是如何运行的。
+
+由此你就可以拥有一个运行着的Docker容器了！从这里开始你可以管理你的容器，与应用交互，应用完成之后，可以停止或者删除你的容器。
+Docker的底层技术
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+Docker使用Go语言编写，并且使用了一系列Linux内核提供的性能来实现我们已经看到的这些功能。
+
+命名空间(Namespaces)（这个上面也详细说明了）
+Docker充分利用了一项称为namespaces的技术来提供隔离的工作空间，我们称之为 container(容器)。当你运行一个容器的时候，Docker为该容器创建了一个命名空间集合。
+这样提供了一个隔离层，每一个应用在它们自己的命名空间中运行而且不会访问到命名空间之外。
+一些Docker使用到的命名空间有：
+pid命名空间: 使用在进程隔离(PID: Process ID)。
+net命名空间: 使用在管理网络接口(NET: Networking)。
+ipc命名空间: 使用在管理进程间通信资源 (IPC: InterProcess Communication)。
+mnt命名空间: 使用在管理挂载点 (MNT: Mount)。
+uts命名空间: 使用在隔离内核和版本标识 (UTS: Unix Timesharing System)。
+
+群组控制
+Docker还使用到了cgroups技术来管理群组。使应用隔离运行的关键是让它们只使用你想要的资源。这样可以确保在机器上运行的容器都是良民(good multi-tenant citizens)。群组控制允许Docker分享或者限制容器使用硬件资源。例如，限制指定的容器的内容使用。
+
+联合文件系统
+联合文件系统(UnionFS)是用来操作创建层的，使它们轻巧快速。Docker使用UnionFS提供容器的构造块。Docker可以使用很多种类的UnionFS包括AUFS, btrfs, vfs, and DeviceMapper。
+
+容器格式
+Docker连接这些组建到一个包装中，称为一个 container format(容器格式)。默认的容器格式是libcontainer。Docker同样支持传统的Linux容器使用LXC。在未来，Docker也许会支持其它的容器格式，例如与BSD Jails 或 Solaris Zone集成。
+Docker的安装
+这个可以参考：Linux下部署docker记录（0）-基础环境安装
+
+1
+2
+3
+Docker的默认路径：
+Docker运行时根目录：/var/lib/docker
+Docker的配置文件：在ubuntu中的位置是：/etc/default/docker；在centos7中的位置是：/etc/sysconfig/docker
+Docker镜像使用
+Docker HUB : Docker镜像首页，包括官方镜像和其它公开镜像。Docker Hub上最受欢迎的10大镜像（通过Docker registry API获取不了镜像被pull的个数，只能通过镜像的star数量，来衡量镜像的流行度。毫无疑问，拥有最高star数量的库都是官方库）：
+
+
+
+因为国情的原因，国内下载 Docker HUB 官方的相关镜像比较慢，可以使用国内（docker.io）的一些镜像加速器，镜像保持和官方一致，关键是速度块，推荐使用。
+这里需要明确一个问题，就是Mirror与Private Registry的区别。二者有着本质的差别：
+
+1
+2
+3
+4
+5
+1）Private Registry（私有仓库）是开发者或者企业自建的镜像存储库，通常用来保存企业内部的 Docker 镜像，用于内部开发流程和产品的发布、版本控制。
+2）Mirror是一种代理中转服务，我们(比如daocloud)提供的Mirror服务，直接对接Docker Hub的官方Registry。Docker Hub 上有数以十万计的各类 Docker 镜像。
+3）在使用Private Registry时，需要在Docker Pull 或Dockerfile中直接键入Private Registry 的地址，通常这样会导致与 Private Registry 的绑定，缺乏灵活性。
+4）使用 Mirror 服务，只需要在 Docker 守护进程（Daemon）的配置文件中加入 Mirror 参数，即可在全局范围内透明的访问官方的 Docker Hub，避免了对 Dockerfile 镜像引用来源的修改。
+5）简单来说，Mirror类似CDN，本质是官方的cache；Private Registry类似私服，跟官方没什么关系。对用户来说，由于用户是要拖docker hub上的image，对应的是Mirror。 yum/apt-get的Mirror又有点不一样，它其实是把官方的库文件整个拖到自己的服务器上做镜像（不管有没有用），并定时与官方做同步；而Docker Mirror只会缓存曾经使用过的image。
+目前国内访问docker hub速度上有点尴尬，使用docker Mirror势在必行。
+现有国内提供docker镜像加速服务的商家有不少，下面重点介绍几家：
+
+1）ustc的镜像
+ustc是老牌的linux镜像服务提供者了，还在遥远的ubuntu 5.04版本的时候就在用。之前在blog里有提到可以用ustc的docker仓库镜像.
+使用方法参考ustc docker镜像使用帮助
+
+ustc的docker镜像加速器速度很不错，一直用的挺happy。ustc docker mirror的优势之一就是不需要注册，真正是公共服务啊。
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+----------------------------------这里顺便说下在新版Docker里使用ustc的做法-------------------------------------
+新版的Docker配置方法：
+[root@localhost ~]# vim /etc/docker/daemon.json   //如果没有该文件的话，就手动创建。在该文件里添加下面内容
+{
+  "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"]
+}
+
+然后就可以直接docker pull下载镜像了，速度杠杠滴！！！
+[root@localhost docker]# docker pull ubuntu
+Using default tag: latest
+Trying to pull repository docker.io/library/ubuntu ...
+latest: Pulling from docker.io/library/ubuntu
+d54efb8db41d: Pull complete
+f8b845f45a87: Pull complete
+e8db7bf7c39f: Pull complete
+9654c40e9079: Pull complete
+6d9ef359eaaa: Pull complete
+Digest: sha256:dd7808d8792c9841d0b460122f1acf0a2dd1f56404f8d1e56298048885e45535
+Status: Downloaded newer image for docker.io/ubuntu:latest
+
+[root@localhost ~]# docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+docker.io/ubuntu    latest              0ef2e08ed3fa        2 weeks ago         130 MB
+----------------------------------------------------------------------------------------------------------------------
+2）daocloud镜像
+DaoCloud也提供了docker加速器，但是跟ustc不同，需要用户注册后才能使用，并且每月限制流量10GB。linux上使用比较简单，一条脚本命令搞定：
+
+1
+curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://{your_id}.m.daocloud.io
+实际上面的脚本执行后，改的是/usr/lib/systemd/system/docker.service文件，加了个–registry-mirror参数。如果不执行上面的脚本命令，可以如下直接修改这个文件也可：
+
+1
+ExecStart=/usr/bin/docker-current daemon --registry-mirror=http://{your_id}.m.daocloud.io\
+设置后，需要重新加载配置&重启：
+
+1
+2
+3
+# systemctl enable docker
+# systemctl daemon-reload
+# systemctl restart docker
+但是最近使用DaoCloud的docker加速器体验非常差，加速效果不是很明显。
+
+3）alicloud
+阿里云也提供了docker加速器，不过比daocloud更麻烦：不光要注册为阿里云的用户，还得加入开发者平台。
+不过虽然麻烦，但是它的服务还真是不错，pull速度很溜！配置方法跟daocloud类似，也是开通加速器以后给一个url。
+可以直接去改/usr/lib/systemd/system/docker.service：
+
+1
+ExecStart=/usr/bin/docker-current daemon --registry-mirror=https://{your_id}.mirror.aliyuncs.com\
+重新加载配置&重启：
+
+1
+2
+3
+# systemctl enable docker
+# systemctl daemon-reload
+# systemctl restart docker
+pull的时候还是显示docker.io，但速度一点都不docker.io。
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+# docker pull ubuntu
+Using default tag: latest
+Trying to pull repository docker.io/library/ubuntu ...
+latest: Pulling from docker.io/library/ubuntu
+cad964aed91d: Pull complete
+3a80a22fea63: Pull complete
+50de990d7957: Pull complete
+61e032b8f2cb: Pull complete
+9f03ce1741bf: Pull complete
+Digest: sha256:28d4c5234db8d5a634d5e621c363d900f8f241240ee0a6a978784c978fe9c737
+Status: Downloaded newer image for docker.io/ubuntu:latest
+4）网易镜像
+网易也提供了Docker镜像服务：网易蜂巢
+
+1
+2
+$ sudo echo "DOCKER_OPTS=\"\$DOCKER_OPTS --registry-mirror=http://hub-mirror.c.163.com\"" >> /etc/default/docker
+$ service docker restart
+综上，虽然aliyun docker mirror用之前的流程有点繁琐，但服务讲真是很不错的。不过我还是倾向于用ustc。
+
+Docker新增特性和命令
+1）docker exec
+Docker 1.3 版本将使用数字签名自动验证所有官方库的来源和完整性。如果一个官方镜像被篡改或者被破坏，目前Docker只会对这种情况发出警告而并不阻止容器的运行。
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+[root@localhost ~]# docker exec --help
+
+Usage:  docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+
+Run a command in a running container
+
+  -d, --detach         Detached mode: run command in the background
+  --detach-keys        Override the key sequence for detaching a container
+  --help               Print usage
+  -i, --interactive    Keep STDIN open even if not attached
+  --privileged         Give extended privileges to the command
+  -t, --tty            Allocate a pseudo-TTY
+  -u, --user           Username or UID (format: <name|uid>[:<group|gid>])
+为了简化调试，可以使用docker exec命令通过 Docker API 和 CLI 在运行的容器上运行程序。
+
+1
+[root@localhost ~]# docker exec -it af40bd07fa0f /bin/bash
+上例将在容器af40bd07fa0f中创建一个新的Bash会话。
+
+2）docker create
+可以通过docker run <image name>命令创建一个容器并运行其中的程序，因为有很多用户要求创建容器的时候不启动容器，所以docker create应运而生了。
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+[root@localhost docker]# docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+centos7             7.3.1611            d5ebea14da54        3 weeks ago         311 MB
+
+[root@localhost docker]# docker create -t -i centos7:7.3.1611 /bin/bash
+c51e8d8e9d214e0a842f267f738259538ce4ea744e76d66a2f6df29cc8d73748
+
+上例创建了一个可写的容器层，但是并不运行它。
+[root@localhost docker]# docker ps
+[root@localhost docker]# docker ps -a
+CONTAINER ID        IMAGE               COMMAND               CREATED              STATUS                      PORTS                     NAMES
+c51e8d8e9d21        centos7:7.3.1611    "/bin/bash"           About a minute ago   Created                                               boring_wilson
+
+可以使用以下命令运行该容器并且登陆该容器
+[root@localhost docker]# docker start -a -i c51e8d8e9d21
+[root@c51e8d8e9d21 /]#
+
+[root@localhost ~]# docker ps
+CONTAINER ID        IMAGE               COMMAND               CREATED              STATUS              PORTS                     NAMES
+c51e8d8e9d21        centos7:7.3.1611    "/bin/bash"           About a minute ago   Up 13 seconds                                 boring_wilson
+Docker的网络配置
+
+
+
+Dokcer 通过使用Linux桥接提供容器之间的通信，docker0桥接接口的目的就是方便Docker管理。当Docker daemon启动时需要做以下操作：
+
+1
+2
+3
+4
+1）如果docker0不存在则创建
+2）搜索一个与当前路由不冲突的ip段
+3）在确定的范围中选择 ip
+4）绑定 ip 到 docker0
+1）Docker四种网络模式
+
+1
+2
+3
+4
+5
+docker run创建Docker容器时，可以用--net选项指定容器的网络模式，Docker有以下4种网络模式：
+1）host模式，使用 --net=host指定。
+2）container模式，使用 --net=container:NAMEorID 指定。
+3）none模式，使用 --net=none指定。
+4）bridge模式，使用 --net=bridge指定，默认设置。
+host 模式
+如果启动容器的时候使用 host 模式，那么这个容器将不会获得一个独立的 Network Namespace，而是和宿主机共用一个 Network Namespace。容器将不会虚拟出自己的网卡，配置自己的 IP 等，而是使用宿主机的 IP 和端口。
+
+比如：我们在 10.10.101.105/24 的机器上用 host 模式启动一个含有 web 应用的 Docker 容器，监听 tcp 80 端口。当我们在容器中执行任何类似 ifconfig 命令查看网络环境时，看到的都是宿主机上的信息。而外界访问容器中的应用，则直接使用 10.10.101.105:80 即可，不用任何 NAT 转换，就如直接跑在宿主机中一样。但是，容器的其他方面，如文件系统、进程列表等还是和宿主机隔离的。
+
+container 模式
+这个模式指定新创建的容器和已经存在的一个容器共享一个 Network Namespace，而不是和宿主机共享。新创建的容器不会创建自己的网卡，配置自己的 IP，而是和一个指定的容器共享 IP、端口范围等。同样，两个容器除了网络方面，其他的如文件系统、进程列表等还是隔离的。两个容器的进程可以通过 lo 网卡设备通信。
+
+none模式
+这个模式和前两个不同。在这种模式下，Docker 容器拥有自己的 Network Namespace，但是，并不为 Docker容器进行任何网络配置。也就是说，这个 Docker 容器没有网卡、IP、路由等信息。需要我们自己为 Docker 容器添加网卡、配置 IP 等。
+
+bridge模式
+
+
+
+bridge 模式是 Docker 默认的网络设置，此模式会为每一个容器分配 Network Namespace、设置 IP 等，并将一个主机上的 Docker 容器连接到一个虚拟网桥上。当 Docker server 启动时，会在主机上创建一个名为 docker0 的虚拟网桥，此主机上启动的 Docker 容器会连接到这个虚拟网桥上。虚拟网桥的工作方式和物理交换机类似，这样主机上的所有容器就通过交换机连在了一个二层网络中。接下来就要为容器分配 IP 了，Docker 会从 RFC1918 所定义的私有 IP 网段中，选择一个和宿主机不同的IP地址和子网分配给 docker0，连接到 docker0 的容器就从这个子网中选择一个未占用的 IP 使用。如一般 Docker 会使用 172.17.0.0/16 这个网段，并将 172.17.42.1/16 分配给 docker0 网桥（在主机上使用 ifconfig 命令是可以看到 docker0 的，可以认为它是网桥的管理接口，在宿主机上作为一块虚拟网卡使用）
+
+2）列出当前主机网桥
+
+1
+2
+3
+[root@localhost ~]# brctl show                                        //brctl工具依赖bridge-utils软件包
+bridge name bridge id       STP enabled interfaces
+docker0     8000.024223421c41   no      veth4b4f1b1
+3）查看当前 docker0 ip
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+[root@localhost ~]# ifconfig docker0
+docker0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 0.0.0.0
+        inet6 fe80::42:23ff:fe42:1c41  prefixlen 64  scopeid 0x20<link>
+        ether 02:42:23:42:1c:41  txqueuelen 0  (Ethernet)
+        RX packets 181704  bytes 9952837 (9.4 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 286903  bytes 598331176 (570.6 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+在容器运行时，每个容器都会分配一个特定的虚拟机口并桥接到 docker0。每个容器都会配置同 docker0 ip 相同网段的专用 ip 地址，docker0 的 IP 地址被用于所有容器的默认网关。
+
+4）运行一个容器
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+[root@localhost ~]# docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+docker.io/ubuntu    latest              0ef2e08ed3fa        2 weeks ago         130 MB
+
+[root@localhost ~]# docker run -t -i -d docker.io/ubuntu /bin/bash
+bad5133ecd6a4c740d57621c8fdb536dd9512718a3cae371789b8063ec730944          //这个字符串的前12位字符就是容器的ID
+
+[root@localhost ~]# docker ps
+CONTAINER ID        IMAGE               COMMAND               CREATED             STATUS              PORTS                     NAMES
+bad5133ecd6a        docker.io/ubuntu    "/bin/bash"           33 seconds ago      Up 32 seconds                                 suspicious_rosalind
+
+[root@localhost ~]# brctl show
+bridge name        bridge id            STP enabled       interfaces
+docker0            8000.024223421c41    no                veth4b4f1b1
+                                                          vetheaa4add
+以上, docker0 扮演着bad5133ecd6a这个容器的虚拟接口vetheaa4add interface 桥接的角色。
+使用特定范围的IP
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+Docker 会尝试寻找没有被主机使用的 ip 段，尽管它适用于大多数情况下，但是它不是万能的，有时候我们还是需要对ip进一步规划。Docker允许你管理docker0桥接或者通过-b选项自定义桥接网卡，需要安装bridge-utils软件包。
+基本步骤如下：
+1）确保docker的进程是停止的
+2）创建自定义网桥
+3）给网桥分配特定的ip
+4）以-b的方式指定网桥
+
+具体操作如下：
+$ sudo service docker stop
+$ sudo ip link set dev docker0 down
+$ sudo brctl delbr docker0
+$ sudo brctl addbr bridge0
+$ sudo ip addr add 192.168.5.1/24 dev bridge0
+$ sudo ip link set dev bridge0 up
+$ ip addr show bridge0
+$ echo 'DOCKER_OPTS="-b=bridge0"' >> /etc/default/docker
+$ sudo service docker start
+5）不同主机间容器通信
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+不同容器之间的通信可以借助于 pipework 这个工具：
+$ git clone https://github.com/jpetazzo/pipework.git
+$ sudo cp -rp pipework/pipework /usr/local/bin/
+
+安装相应依赖软件
+$ sudo apt-get install iputils-arping bridge-utils -y
+
+桥接网络
+# brctl show
+bridge name     bridge id               STP enabled     interfaces
+br0             8000.000c291412cd       no              eth0
+docker0         8000.56847afe9799       no              vetheb48029
+
+可以删除docker0，直接把docker的桥接指定为 br0。也可以保留使用默认的配置，这样单主机容器之间的通信可以通过 docker0，而跨主机不同容器之间通过pipework新建docker容器的网卡桥接到br0，这样跨主机容器之间就可以通信了。
+具体操作如下：
+1）ubuntu操作：
+$ sudo service docker stop
+$ sudo ip link set dev docker0 down
+$ sudo brctl delbr docker0
+$ echo 'DOCKER_OPTS="-b=br0"' >> /etc/default/docker
+$ sudo service docker start
+
+2）CentOS 7操作
+$ sudo systemctl stop docker
+$ sudo ip link set dev docker0 down
+$ sudo brctl delbr docker0
+$ cat /etc/sysconfig/docker | grep 'OPTIONS=' OPTIONS=--selinux-enabled -b=br0 -H fd://
+$ sudo systemctl start docker
+pipework
+
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+不同容器之间的通信可以借助于pipework这个工具给docker容器新建虚拟网卡并绑定IP桥接到br0
+
+$ git clone https://github.com/jpetazzo/pipework.git
+$ sudo cp -rp pipework/pipework /usr/local/bin/
+$ pipework
+Syntax:
+pipework <hostinterface> [-i containerinterface] <guest> <ipaddr>/<subnet>[@default_gateway] [macaddr][@vlan]
+pipework <hostinterface> [-i containerinterface] <guest> dhcp [macaddr][@vlan]
+pipework --wait [-i containerinterface]
+
+如果删除了默认的 docker0 桥接，把 docker 默认桥接指定到了 br0，则最好在创建容器的时候加上--net=none，防止自动分配的 IP 在局域网中有冲突。
+
+$ sudo docker run --rm -ti --net=none ubuntu:14.04 /bin/bash
+root@a46657528059:/#
+$                  # Ctrl-P + Ctrl-Q 回到宿主机 shell，容器 detach 状态
+$ sudo docker  ps
+CONTAINER ID    IMAGE          COMMAND       CREATED         STATUS          PORTS      NAMES
+a46657528059    ubuntu:14.04   "/bin/bash"   4 minutes ago   Up 4 minutes               hungry_lalande
+$ sudo pipework br0 -i eth0 a46657528059 192.168.115.10/24@192.168.115.2
+# 默认不指定网卡设备名，则默认添加为 eth1
+# 另外 pipework 不能添加静态路由，如果有需求则可以在 run 的时候加上 --privileged=true 权限在容器中手动添加，
+# 但这种安全性有缺陷，可以通过 ip netns 操作
+$ sudo docker attach a46657528059
+root@a46657528059:/# ifconfig eth0
+eth0      Link encap:Ethernet  HWaddr 86:b6:6b:e8:2e:4d
+          inet addr:192.168.115.10  Bcast:0.0.0.0  Mask:255.255.255.0
+          inet6 addr: fe80::84b6:6bff:fee8:2e4d/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:8 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:9 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:648 (648.0 B)  TX bytes:690 (690.0 B)
+
+root@a46657528059:/# route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         192.168.115.2   0.0.0.0         UG    0      0        0 eth0
+192.168.115.0   0.0.0.0         255.255.255.0   U     0      0        0 eth0
+
+使用ip netns添加静态路由，避免创建容器使用--privileged=true选项造成一些不必要的安全问题：
+$ docker inspect --format="{{ .State.Pid }}" a46657528059 # 获取指定容器 pid
+6350
+$ sudo ln -s /proc/6350/ns/net /var/run/netns/6350
+$ sudo ip netns exec 6350 ip route add 192.168.0.0/16 dev eth0 via 192.168.115.2
+$ sudo ip netns exec 6350 ip route    # 添加成功
+192.168.0.0/16 via 192.168.115.2 dev eth0
+... ...
+在其它宿主机进行相应的配置，新建容器并使用 pipework 添加虚拟网卡桥接到 br0，测试通信情况即可。
+另外，pipework 可以创建容器的vlan网络，这里不作过多的介绍了，官方文档已经写的很清楚了，可以查看以下两篇文章：
+Pipework 官方文档
+Docker 网络详解及 pipework 源码解读与实践
+
+Dockerfile
+Docker 可以通过 Dockerfile 的内容来自动构建镜像。Dockerfile 是一个包含创建镜像所有命令的文本文件，通过docker build命令可以根据 Dockerfile 的内容构建镜像，在介绍如何构建之前先介绍下 Dockerfile 的基本语法结构。
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+Dockerfile 有以下指令选项:
+FROM
+MAINTAINER
+RUN
+CMD
+EXPOSE
+ENV
+ADD
+COPY
+ENTRYPOINT
+VOLUME
+USER
+WORKDIR
+ONBUILD
+1）FROM
+
+1
+2
+3
+4
+5
+6
+7
+8
+用法:
+FROM <image>
+或者
+FROM <image>
+FROM指定构建镜像的基础源镜像，如果本地没有指定的镜像，则会自动从 Docker 的公共库 pull 镜像下来。
+FROM必须是 Dockerfile 中非注释行的第一个指令，即一个 Dockerfile 从FROM语句开始。
+FROM可以在一个 Dockerfile 中出现多次，如果有需求在一个 Dockerfile 中创建多个镜像。
+如果FROM语句没有指定镜像标签，则默认使用latest标签。
+2）MAINTAINER
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+用法:
+MAINTAINER <name>
+指定创建镜像的用户
+
+RUN 有两种使用方式：
+RUN
+RUN "executable", "param1", "param2"
+
+每条RUN指令将在当前镜像基础上执行指定命令，并提交为新的镜像，后续的RUN都在之前RUN提交后的镜像为基础，镜像是分层的，可以通过一个镜像的任何一个历史提交点来创建，类似源码的版本控制。
+
+exec 方式会被解析为一个 JSON 数组，所以必须使用双引号而不是单引号。exec 方式不会调用一个命令 shell，所以也就不会继承相应的变量，如：
+
+RUN [ "echo", "$HOME" ]
+这种方式是不会达到输出 HOME 变量的，正确的方式应该是这样的
+
+RUN [ "sh", "-c", "echo", "$HOME" ]
+RUN产生的缓存在下一次构建的时候是不会失效的，会被重用，可以使用--no-cache选项，即docker build --no-cache，如此便不会缓存。
+3）CMD
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+CMD有三种使用方式:
+CMD "executable","param1","param2"
+CMD "param1","param2"
+CMD command param1 param2 (shell form)
+
+CMD指定在 Dockerfile 中只能使用一次，如果有多个，则只有最后一个会生效。
+CMD的目的是为了在启动容器时提供一个默认的命令执行选项。如果用户启动容器时指定了运行的命令，则会覆盖掉CMD指定的命令。
+
+另外注意不要弄混以下的概念：
+CMD会在启动容器的时候执行，build时不执行，而RUN只是在构建镜像的时候执行，后续镜像构建完成之后，启动容器就与RUN无关了
+4）EXPOSE
+
+1
+2
+EXPOSE <port> [<port>...]
+告诉 Docker 服务端容器对外映射的本地端口，需要在 docker run 的时候使用-p或者-P选项生效。
+5）ENV
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+ENV <key> <value>       # 只能设置一个变量
+ENV <key>=<value> ...   # 允许一次设置多个变量
+指定一个环节变量，会被后续RUN指令使用，并在容器运行时保留。
+
+例子:
+
+ENV myName="John Doe" myDog=Rex\ The\ Dog \
+    myCat=fluffy
+等同于
+
+ENV myName John Doe
+ENV myDog Rex The Dog
+ENV myCat fluffy
+6）ADD
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+ADD <src>... <dest>
+ADD复制本地主机文件、目录或者远程文件 URLS 从 并且添加到容器指定路径中 。
+
+支持通过GO的正则模糊匹配，具体规则可参见https://golang.org/pkg/path/filepath/#Match
+
+ADD hom* /mydir/        # adds all files starting with "hom"
+ADD hom?.txt /mydir/    # ? is replaced with any single character
+路径必须是绝对路径，如果 不存在，会自动创建对应目录
+路径必须是 Dockerfile 所在路径的相对路径
+如果是一个目录，只会复制目录下的内容，而目录本身则不会被复制
+7）COPY
+
+1
+2
+COPY <src>... <dest>
+COPY复制新文件或者目录从 并且添加到容器指定路径中 。用法同ADD，唯一的不同是不能指定远程文件 URLS。
+8）ENTRYPOINT
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+ENTRYPOINT "executable", "param1", "param2"
+ENTRYPOINT command param1 param2 (shell form)
+配置容器启动后执行的命令，并且不可被 docker run 提供的参数覆盖，而CMD是可以被覆盖的。如果需要覆盖，则可以使用docker run --entrypoint选项。
+
+每个 Dockerfile 中只能有一个ENTRYPOINT，当指定多个时，只有最后一个生效。
+
+Exec form ENTRYPOINT 例子
+通过ENTRYPOINT使用 exec form 方式设置稳定的默认命令和选项，而使用CMD添加默认之外经常被改动的选项。
+
+FROM ubuntu
+ENTRYPOINT ["top", "-b"]
+CMD ["-c"]
+通过 Dockerfile 使用ENTRYPOINT展示前台运行 Apache 服务
+
+FROM debian:stable
+RUN apt-get update && apt-get install -y --force-yes apache2
+EXPOSE 80 443
+VOLUME ["/var/www", "/var/log/apache2", "/etc/apache2"]
+ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+Shell form ENTRYPOINT 例子
+这种方式会在/bin/sh -c中执行，会忽略任何CMD或者docker run命令行选项，为了确保docker stop能够停止长时间运行ENTRYPOINT的容器，确保执行的时候使用exec选项。
+
+FROM ubuntu
+ENTRYPOINT exec top -b
+如果在ENTRYPOINT忘记使用exec选项，则可以使用CMD补上:
+
+FROM ubuntu
+ENTRYPOINT top -b
+CMD --ignored-param1 # --ignored-param2 ... --ignored-param3 ... 依此类推
+9）VOLUME
+
+1
+2
+VOLUME ["/data"]
+创建一个可以从本地主机或其他容器挂载的挂载点，后续具体介绍。
+10）USER
+
+1
+2
+USER daemon
+指定运行容器时的用户名或 UID，后续的RUN、CMD、ENTRYPOINT也会使用指定用户。
+11）WORKDIR
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+WORKDIR /path/to/workdir
+为后续的RUN、CMD、ENTRYPOINT指令配置工作目录。可以使用多个WORKDIR指令，后续命令如果参数是相对路径，则会基于之前命令指定的路径。
+
+WORKDIR /a
+WORKDIR b
+WORKDIR c
+RUN pwd
+最终路径是/a/b/c。
+
+WORKDIR指令可以在ENV设置变量之后调用环境变量:
+
+ENV DIRPATH /path
+WORKDIR $DIRPATH/$DIRNAME
+最终路径则为 /path/$DIRNAME。
+12）ONBUILD
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+ONBUILD [INSTRUCTION]
+配置当所创建的镜像作为其它新创建镜像的基础镜像时，所执行的操作指令。
+
+例如，Dockerfile 使用如下的内容创建了镜像 image-A：
+
+[...]
+ONBUILD ADD . /app/src
+ONBUILD RUN /usr/local/bin/python-build --dir /app/src
+[...]
+如果基于 image-A 创建新的镜像时，新的 Dockerfile 中使用 FROM image-A 指定基础镜像时，会自动执行 ONBUILD 指令内容，等价于在后面添加了两条指令。
+
+# Automatically run the following
+ADD . /app/src
+RUN /usr/local/bin/python-build --dir /app/src
+使用ONBUILD指令的镜像，推荐在标签中注明，例如 ruby:1.9-onbuild。
+13）Dockerfile 示例
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+# Nginx
+#
+# VERSION               0.0.1
+
+FROM      ubuntu
+MAINTAINER Victor Vieux <victor@docker.com>
+
+RUN apt-get update && apt-get install -y inotify-tools nginx apache2 openssh-server
+
+# Firefox over VNC
+#
+# VERSION               0.3
+
+FROM ubuntu
+
+# Install vnc, xvfb in order to create a 'fake' display and firefox
+RUN apt-get update && apt-get install -y x11vnc xvfb firefox
+RUN mkdir ~/.vnc
+# Setup a password
+RUN x11vnc -storepasswd 1234 ~/.vnc/passwd
+# Autostart firefox (might not be the best way, but it does the trick)
+RUN bash -c 'echo "firefox" >> /.bashrc'
+
+EXPOSE 5900
+CMD    ["x11vnc", "-forever", "-usepw", "-create"]
+
+# Multiple images example
+#
+# VERSION               0.1
+
+FROM ubuntu
+RUN echo foo > bar
+# Will output something like ===> 907ad6c2736f
+
+FROM ubuntu
+RUN echo moo > oink
+# Will output something like ===> 695d7793cbe4
+
+# You᾿ll now have two images, 907ad6c2736f with /bar, and 695d7793cbe4 with
+# /oink.
+14）docker build
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+$ docker build --help
+
+Usage: docker build [OPTIONS] PATH | URL | -
+
+Build a new image from the source code at PATH
+
+  --force-rm=false     Always remove intermediate containers, even after unsuccessful builds # 移除过渡容器，即使构建失败
+  --no-cache=false     Do not use cache when building the image                              # 不实用 cache
+  -q, --quiet=false    Suppress the verbose output generated by the containers
+  --rm=true            Remove intermediate containers after a successful build               # 构建成功后移除过渡层容器
+  -t, --tag=""         Repository name (and optionally a tag) to be applied to the resulting image in case of success
+参考文档:Dockerfile Reference
+
+15）dockerfile 最佳实践
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+使用.dockerignore文件
+为了在docker build过程中更快上传和更加高效，应该使用一个.dockerignore文件用来排除构建镜像时不需要的文件或目录。例如,除非.git在构建过程中需要用到，否则你应该将它添加到.dockerignore文件中，这样可以节省很多时间。
+
+避免安装不必要的软件包
+为了降低复杂性、依赖性、文件大小以及构建时间，应该避免安装额外的或不必要的包。例如，不需要在一个数据库镜像中安装一个文本编辑器。
+
+每个容器都跑一个进程
+在大多数情况下，一个容器应该只单独跑一个程序。解耦应用到多个容器使其更容易横向扩展和重用。如果一个服务依赖另外一个服务，可以参考 https://docs.docker.com/engine/userguide/networking/default_network/dockerlinks/
+
+最小化层
+我们知道每执行一个指令，都会有一次镜像的提交，镜像是分层的结构，对于Dockerfile，应该找到可读性和最小化层之间的平衡。
+
+多行参数排序
+如果可能，通过字母顺序来排序，这样可以避免安装包的重复并且更容易更新列表，另外可读性也会更强，添加一个空行使用\换行:
+
+RUN apt-get update && apt-get install -y \
+  bzr \
+  cvs \
+  git \
+  mercurial \
+  subversion
+
+创建缓存
+镜像构建过程中会按照Dockerfile的顺序依次执行，每执行一次指令 Docker 会寻找是否有存在的镜像缓存可复用，如果没有则创建新的镜像。如果不想使用缓存，则可以在docker build时添加--no-cache=true选项。
+
+从基础镜像开始就已经在缓存中了，下一个指令会对比所有的子镜像寻找是否执行相同的指令，如果没有则缓存失效。在大多数情况下只对比Dockerfile指令和子镜像就足够了。ADD和COPY指令除外，执行ADD和COPY时存放到镜像的文件也是需要检查的，完成一个文件的校验之后再利用这个校验在缓存中查找，如果检测的文件改变则缓存失效。RUN apt-get -y update命令只检查命令是否匹配，如果匹配就不会再执行更新了。
+
+为了有效地利用缓存，你需要保持你的 Dockerfile 一致，并且尽量在末尾修改。
+Dockerfile 指令
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+FROM: 只要可能就使用官方镜像库作为基础镜像
+RUN: 为保持可读性、方便理解、可维护性，把长或者复杂的RUN语句使用\分隔符分成多行
+不建议RUN apt-get update独立成行，否则如果后续包有更新，那么也不会再执行更新
+避免使用RUN apt-get upgrade或者dist-upgrade，很多必要的包在一个非privileged权限的容器里是无法升级的。如果知道某个包更新，使用apt-get install -y xxx
+
+标准写法
+RUN apt-get update && apt-get install -y package-bar package-foo
+
+例子:
+
+RUN apt-get update && apt-get install -y \
+    aufs-tools \
+    automake \
+    btrfs-tools \
+    build-essential \
+    curl \
+    dpkg-sig \
+    git \
+    iptables \
+    libapparmor-dev \
+    libcap-dev \
+    libsqlite3-dev \
+    lxc=1.0* \
+    mercurial \
+    parallel \
+    reprepro \
+    ruby1.9.1 \
+    ruby1.9.1-dev \
+    s3cmd=1.1.0*
+
+CMD: 推荐使用CMD [“executable”, “param1”, “param2”…]这种格式，CMD [“param”, “param”]则配合ENTRYPOINT使用
+EXPOSE: Dockerfile 指定要公开的端口，使用docker run时指定映射到宿主机的端口即可
+ENV: 为了使新的软件更容易运行，可以使用ENV更新PATH变量。如ENV PATH /usr/local/nginx/bin:$PATH确保CMD ["nginx"]即可运行
+
+ENV也可以这样定义变量：
+ENV PG_MAJOR 9.3
+ENV PG_VERSION 9.3.4
+RUN curl -SL http://example.com/postgres-$PG_VERSION.tar.xz | tar -xJC /usr/src/postgress && …
+ENV PATH /usr/local/postgres-$PG_MAJOR/bin:$PATH
+ADDorCOPY:ADD比COPY多一些特性「tar 文件自动解包和支持远程 URL」，不推荐添加远程URL
+
+如不推荐这种方式:
+ADD http://example.com/big.tar.xz /usr/src/things/
+RUN tar -xJf /usr/src/things/big.tar.xz -C /usr/src/things
+RUN make -C /usr/src/things all
+
+推荐使用 curl 或者 wget 替换，使用如下方式:
+RUN mkdir -p /usr/src/things \
+    && curl -SL http://example.com/big.tar.gz \
+    | tar -xJC /usr/src/things \
+    && make -C /usr/src/things all
+
+如果不需要添加 tar 文件，推荐使用COPY。
+可参考下面两篇文档：
+Dockerfile最佳实践（一）
+Dockerfile最佳实践（二）
+
+Docker容器数据管理
+
+1
+2
+3
+docker管理数据的方式有两种：
+数据卷
+数据卷容器
+1）数据卷
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+数据卷是一个或多个容器专门指定绕过Union File System的目录，为持续性或共享数据提供一些有用的功能：
+1）数据卷可以在容器间共享和重用
+2）数据卷数据改变是直接修改的
+3）数据卷数据改变不会被包括在容器中
+4）数据卷是持续性的，直到没有容器使用它们
+5）添加一个数据卷
+
+你可以使用-v选项添加一个数据卷，或者可以使用多次-v选项为一个 docker 容器运行挂载多个数据卷。
+$ sudo docker run --name data -v /data -t -i ubuntu:14.04 /bin/bash # 创建数据卷绑定到到新建容器，新建容器中会创建 /data 数据卷 bash-4.1# ls -ld /data/
+drwxr-xr-x 2 root root 4096 Jul 23 06:59 /data/
+bash-4.1# df -Th
+Filesystem    Type    Size  Used Avail Use% Mounted on
+... ...
+              ext4     91G  4.6G   82G   6% /data
+
+创建的数据卷可以通过docker inspect获取宿主机对应路径
+$ sudo docker inspect data
+... ... "Volumes": { "/data": "/var/lib/docker/volumes/151de401d268226f96d824fdf444e77a4500aed74c495de5980c807a2ffb7ea9" }, # 可以看到创建的数据卷宿主机路径 ... ...
+
+或者直接指定获取
+$ sudo docker inspect --format="{{ .Volumes }}" data
+map[/data: /var/lib/docker/volumes/151de401d268226f96d824fdf444e77a4500aed74c495de5980c807a2ffb7ea9]
+
+挂载宿主机目录为一个数据卷
+-v选项除了可以创建卷，也可以挂载当前主机的一个目录到容器中。
+$ sudo docker run --name web -v /source/:/web -t -i ubuntu:14.04 /bin/bash
+bash-4.1# ls -ld /web/
+drwxr-xr-x 2 root root 4096 Jul 23 06:59 /web/
+bash-4.1# df -Th
+... ...
+              ext4     91G  4.6G   82G   6% /web
+bash-4.1# exit
+
+默认挂载卷是可读写的，可以在挂载时指定只读
+$ sudo docker run --rm --name test -v /source/:/test:ro -t -i ubuntu:14.04 /bin/bash
+2）创建和挂载一个数据卷容器（这样即使删除了刚开始的第一个数据卷容器或者中间层的数据卷容器，只要有其他容器使用数据卷，数据卷都不会被删除的。）
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+如果你有一些持久性的数据并且想在容器间共享，或者想用在非持久性的容器上，最好的方法是创建一个数据卷容器，然后从此容器上挂载数据。
+这样就可以在容器之间共享数据了。
+
+创建数据卷容器
+$ sudo docker run -t -i -d -v /test --name test ubuntu:14.04 echo hello
+
+使用--volumes-from选项在另一个容器中挂载 /test 卷。不管 test 容器是否运行，其它容器都可以挂载该容器数据卷，当然如果只是单独的数据卷是没必要运行容器的。
+$ sudo docker run -t -i -d --volumes-from test --name test1 ubuntu:14.04 /bin/bash
+
+添加另一个容器
+$ sudo docker run -t -i -d --volumes-from test --name test2 ubuntu:14.04 /bin/bash
+
+也可以继承其它挂载有 /test 卷的容器
+$ sudo docker run -t -i -d --volumes-from test1 --name test3 ubuntu:14.04 /bin/bash
+
+
+3）备份、恢复或迁移数据卷
+
+数据卷备份
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+$ sudo docker run --rm --volumes-from test -v $(pwd):/backup ubuntu:14.04 tar cvf /backup/test.tar /test
+tar: Removing leading `/' from member names
+/test/
+/test/b
+/test/d
+/test/c
+/test/a
+
+以上命令表示：
+启动一个新的容器并且从test容器中挂载卷，然后挂载当前目录到容器中为backup，并备份test卷中所有的数据为test.tar，执行完成之后删除容器--rm，此时备份就在当前的目录下，名为test.tar。
+注意：后面的/test是数据卷的目录路径（即数据卷创建时在容器里的路径）
+
+$ ls
+宿主机当前目录下产生了test卷的备份文件test.tar
+
+---------------------------------------------看看下面的一个实例---------------------------------------------
+先创建一个容器wang，包含两个数据卷/var/volume1和/var/volume2（这两个目录是在容器里的数据卷路径）
+[root@localhost ~]# docker run -t -i -v /var/volume1 -v /var/volume2 --name wang docker.io/centos /bin/bash
+[root@83eb43492ae7 /]#
+
+根据Docker的数据持久化之数据卷容器可知,上面创建的wang数据卷容器挂载了/var/volume1和/var/volume2两个目录
+然后在数据卷里写些数据，以供测试。
+[root@83eb43492ae7 /]# cd /var/volume1
+[root@83eb43492ae7 volume1]# echo "test1" > test1
+[root@83eb43492ae7 volume1]# echo "test11" > test11
+[root@83eb43492ae7 volume1]# echo "test111" > test111
+[root@83eb43492ae7 volume1]# ls
+test1  test11  test111
+[root@83eb43492ae7 volume1]# cd ../volume2
+[root@83eb43492ae7 volume2]# echo "test2" > test2
+[root@83eb43492ae7 volume2]# echo "test22" > test22
+[root@83eb43492ae7 volume2]# echo "test222" > test222
+[root@83eb43492ae7 volume2]# ls
+test2  test22  test222
+[root@83eb43492ae7 volume2]#
+
+然后进行这两个数据卷的备份
+[root@localhost ~]# docker ps
+CONTAINER ID        IMAGE               COMMAND               CREATED             STATUS              PORTS                     NAMES
+83eb43492ae7        docker.io/centos    "/bin/bash"           2 minutes ago       Up 2 minutes                                  wang
+
+
+现在开始进行数据卷的备份操作：
+为了利用数据卷容器备份,使用--volumes-from标记来创建一个加载wang容器卷的容器，并从主机挂载当前目录到容器的/backup目录。并备份wang卷中的数据，执行完成之后删除容器--rm，此时备份就在当前的目录下了。
+
+1）备份wang容器中的/var/volume1数据卷数据
+[root@localhost ~]# docker run -i -t --volumes-from wang -v $(pwd):/backup docker.io/centos tar cvf /backup/backup1.tar /var/volume1
+tar: Removing leading `/' from member names
+/var/volume1/
+/var/volume1/test1
+/var/volume1/test11
+/var/volume1/test111
+
+2）备份wang容器中的/var/volume2数据卷数据
+[root@localhost ~]# docker run -i -t --volumes-from wang -v $(pwd):/backup docker.io/centos tar cvf /backup/backup2.tar /var/volume2
+tar: Removing leading `/' from member names
+/var/volume2/
+/var/volume2/test2
+/var/volume2/test22
+/var/volume2/test222
+
+3）备份wang容器中的/var/volume1和/var/volume2数据卷数据
+[root@localhost ~]# docker run -i -t --volumes-from wang -v $(pwd):/backup docker.io/centos tar cvf /backup/backup.tar /var/volume1 /var/volume2
+tar: Removing leading `/' from member names
+/var/volume1/
+/var/volume1/test1
+/var/volume1/test11
+/var/volume1/test111
+/var/volume2/
+/var/volume2/test2
+/var/volume2/test22
+/var/volume2/test222
+[root@localhost ~]# ls
+anaconda-ks.cfg  a.py  backup1.tar  backup2.tar  backup.tar  mkimage-yum.sh  pipework  var  wang.tar
+
+这样,数据卷容器中的数据就备份完成了. 简言之就是：
+先创建一个容器，并挂载要备份的容器数据卷，再挂载数据卷(pwd):/backup目录到容器/bakcup，在容器中执行备份/data目录到/backup，也就是备份到宿主机$(pwd):/backup目录。
+数据卷恢复或迁移
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+可以恢复给同一个容器或者另外的容器，新建容器并解压备份文件到新的容器数据卷
+$ sudo docker run -t -i -d -v /test --name test4 ubuntu:14.04  /bin/bash
+$ sudo docker run --rm --volumes-from test4 -v $(pwd):/backup ubuntu:14.04 tar xvf /backup/test.tar -C /
+恢复之前的文件到新建卷中，执行完后自动删除容器 test/ test/b test/d test/c test/a
+
+-----------------------------接着上面的实例进行数据卷恢复操作--------------------------
+[root@localhost ~]# docker ps
+CONTAINER ID        IMAGE               COMMAND               CREATED             STATUS              PORTS                     NAMES
+531c9d8adf4c        docker.io/centos    "/bin/bash"           2 minutes ago       Up 44 seconds                                 wang
+
+1）恢复数据给同一个容器
+测了测试效果，先删除数据卷（注意：数据卷目录删除不了，只能删除其中的数据。）
+[root@localhost ~]# docker attach wang
+[root@531c9d8adf4c ~]# ls /var/volume1
+test1  test11  test111
+[root@531c9d8adf4c ~]# ls /var/volume2
+test2  test22  test222
+[root@531c9d8adf4c ~]# rm -rf /var/volume1 /var/volume2
+rm: cannot remove '/var/volume1': Device or resource busy
+rm: cannot remove '/var/volume2': Device or resource busy
+[root@531c9d8adf4c ~]# ls /var/volume2
+[root@531c9d8adf4c ~]# ls /var/volume1
+
+现在进行数据卷恢复，恢复数据卷中的所有数据：
+[root@localhost ~]# ls
+anaconda-ks.cfg  a.py  backup1.tar  backup2.tar  backup.tar  mkimage-yum.sh  pipework  var  wang.tar
+
+注意-C后面的路径，这个路径表示将数据恢复到容器里的路径。
+命令中用"/"，即表示将backup.tar中的数据解压到容器的/路径下。后面跟什么路径，就解压到这个路径下。因此这里用"/"
+[root@localhost ~]# docker run --rm --volumes-from wang -v $(pwd):/backup docker.io/centos tar xvf /backup/backup.tar -C /
+var/volume1/
+var/volume1/test1
+var/volume1/test11
+var/volume1/test111
+var/volume2/
+var/volume2/test2
+var/volume2/test22
+var/volume2/test222
+
+再次到容器里查看，发现数据卷里的数据已经恢复了
+[root@531c9d8adf4c ~]# ls /var/volume1
+test1  test11  test111
+[root@531c9d8adf4c ~]# ls /var/volume2
+test2  test22  test222
+
+2）恢复数据给另外的容器，新建容器并解压备份文件到新的容器数据卷
+即新建一个容器huihui，将上面备份的数据卷数据恢复到这个新容器里。
+[root@localhost ~]# docker run -t -i -v /var/volume1 -v /var/volume2 --name huihui docker.io/centos /bin/bash
+[root@f6ff380e0b7f var]# ls /var/volume1
+[root@f6ff380e0b7f var]# ls /var/volume2
+
+[root@localhost ~]# ls
+anaconda-ks.cfg  a.py  backup1.tar  backup2.tar  backup.tar  mkimage-yum.sh  pipework  var  wang.tar
+
+[root@localhost ~]# docker run --rm --volumes-from huihui -v $(pwd):/backup docker.io/centos tar xvf /backup/backup.tar -C /
+var/volume1/
+var/volume1/test1
+var/volume1/test11
+var/volume1/test111
+var/volume2/
+var/volume2/test2
+var/volume2/test22
+var/volume2/test222
+
+[root@localhost ~]# docker ps
+CONTAINER ID        IMAGE               COMMAND               CREATED             STATUS              PORTS                     NAMES
+813afe297b60        docker.io/centos    "/bin/bash"           17 seconds ago      Up 16 seconds                                 huihui
+
+
+这里注意一下：
+新容器创建时挂载的数据卷路径最好是和之前备份的数据卷路径一致
+如下：
+1）新建容器挂载的数据卷只是备份数据卷的一部分，那么恢复的时候也只是恢复一部分数据。如下，新容器创建时只挂载/var/volume1
+[root@localhost ~]# docker run -t -i -v /var/volume1 --name huihui docker.io/centos /bin/bash
+[root@12dd8d742259 /]# ls /var/volume1/
+[root@12dd8d742259 /]# ls /var/volume2
+ls: cannot access /var/volume2: No such file or directory
+
+[root@localhost ~]# docker run --rm --volumes-from huihui -v $(pwd):/backup docker.io/centos tar xvf /backup/backup.tar -C /
+var/volume1/
+var/volume1/test1
+var/volume1/test11
+var/volume1/test111
+var/volume2/
+var/volume2/test2
+var/volume2/test22
+var/volume2/test222
+[root@localhost ~]#
+
+查看容器，发现只恢复了/var/volume1的数据，/var/volume2数据没有恢复，因为没有容器创建时没有挂载这个。
+[root@localhost ~]# docker run -t -i -v /var/volume1 --name huihui docker.io/centos /bin/bash
+[root@12dd8d742259 /]# ls /var/volume1/
+[root@12dd8d742259 /]# ls /var/volume2
+ls: cannot access /var/volume2: No such file or directory
+
+2）新容器创建时只挂载/var/volume2
+[root@localhost ~]# docker run -t -i -v /var/volume2 --name huihui docker.io/centos /bin/bash
+[root@da3a3d2c95e0 /]# ls /var/volume2/
+[root@da3a3d2c95e0 /]# ls /var/volume1
+ls: cannot access /var/volume1: No such file or directory
+
+[root@localhost ~]# docker run --rm --volumes-from huihui -v $(pwd):/backup docker.io/centos tar xvf /backup/backup.tar -C /
+var/volume1/
+var/volume1/test1
+var/volume1/test11
+var/volume1/test111
+var/volume2/
+var/volume2/test2
+var/volume2/test22
+var/volume2/test222
+[root@localhost ~]#
+
+[root@da3a3d2c95e0 /]# ls /var/volume1
+ls: cannot access /var/volume1: No such file or directory
+[root@da3a3d2c95e0 /]# ls /var/volume2/
+test2  test22  test222
+
+3)如果新容器创建时挂载的数据卷目录跟之前备份的路径不一致
+[root@localhost ~]# docker run -t -i -v /var/huihui --name huihui docker.io/centos /bin/bash
+[root@9bad9b3bde71 /]# ls /var/huihui/
+[root@9bad9b3bde71 /]#
+
+如果解压时-C后面跟的路径不是容器挂载的容器，那么数据恢复不了，如下
+[root@localhost ~]# docker run --rm --volumes-from huihui -v $(pwd):/backup docker.io/centos tar xvf /backup/backup.tar -C /
+var/volume1/
+var/volume1/test1
+var/volume1/test11
+var/volume1/test111
+var/volume2/
+var/volume2/test2
+var/volume2/test22
+var/volume2/test222
+
+发现容器内数据没有恢复
+[root@9bad9b3bde71 /]# ls /var/huihui/
+[root@9bad9b3bde71 /]#
+
+但是如果解压时-C后面跟的是容器挂载的路径，数据就能正常恢复
+[root@localhost ~]# docker run --rm --volumes-from huihui -v $(pwd):/backup docker.io/centos tar xvf /backup/backup.tar -C /var/huihui
+var/volume1/
+var/volume1/test1
+var/volume1/test11
+var/volume1/test111
+var/volume2/
+var/volume2/test2
+var/volume2/test22
+var/volume2/test222
+[root@localhost ~]#
+
+发现容器内数据已经恢复了
+[root@9bad9b3bde71 /]# ls /var/huihui/
+var
+[root@9bad9b3bde71 /]# ls /var/huihui/var/
+volume1  volume2
+[root@9bad9b3bde71 /]# ls /var/huihui/var/volume1
+test1  test11  test111
+[root@9bad9b3bde71 /]# ls /var/huihui/var/volume2
+test2  test22  test222
+删除 Volumes
+
+1
+2
+3
+4
+5
+6
+7
+8
+Volume 只有在下列情况下才能被删除：
+1）docker rm -v删除容器时添加了-v选项
+2）docker run --rm运行容器时添加了--rm选项
+否则，会在/var/lib/docker/volumes目录中遗留很多不明目录。
+
+可以使用下面方式找出，然后删除_data目录下的数据文件
+[root@localhost volumes]# docker inspect huihui|grep /var/lib/docker/volumes
+                "Source": "/var/lib/docker/volumes/97aa95420e66de20abbe618fad8d0c1da31c54ce97e32a3892fa921c7942d42b/_data",
+Docker链接容器
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+docker允许把多个容器连接在一起，相互交互信息。docker 链接会创建一种容器父子级别的关系，其中父容器可以看到其子容器提供的信息。
+1）容器命名
+在创建容器时，如果不指定容器的名字，则默认会自动创建一个名字。
+一般推荐给容器命名，好处是：
+a）给容器命名方便记忆，如命名运行web应用的容器为web
+b）为docker容器提供一个参考，允许方便其他容器调用，如把容器web链接到容器db
+
+可以通过--name选项给容器自定义命名：
+[root@localhost ~]# docker run -d -t -i --name test ubuntu:14.04 /bin/bash
+[root@localhost ~]# docker  inspect --format="{{ .Name }}" test
+/test
+
+注意：容器名称必须唯一，即你只能命名一个叫test的容器。如果你想复用容器名，则必须在创建新的容器前通过docker rm删除旧的容器或者创建容器时添加--rm选项。
+
+2）链接容器
+链接允许容器间安全通信，使用--link选项创建链接。比如：
+
+$ sudo docker run -d --name db training/postgres
+基于training/postgres镜像创建一个名为db的容器，然后下面创建一个叫做web的容器，并且将它与db相互连接在一起
+
+$ sudo docker run -d --name web --link db:db training/webapp
+
+其中：
+--link <container_name or container_id>:alias选项指定链接到的容器。
+
+查看web容器的链接关系:
+$ sudo docker inspect -f "{{ .HostConfig.Links }}" web
+[/db:/web/db]
+
+可以看到web容器被链接到db容器为/web/db，这允许web容器访问 db 容器的信息。
+
+容器之间的链接实际做了什么？
+一个链接允许一个源容器提供信息访问给一个接收容器。
+在本例中，web容器作为一个接收者，允许访问源容器db的相关服务信息。
+Docker创建了一个安全隧道而不需要对外公开任何端口给外部容器，因此不需要在创建容器的时候添加-p或-P指定对外公开的端口，这也是链接容器的最大好处，本例为PostgreSQL数据库。
+
+
+Docker 主要通过以下两个方式提供连接信息给接收容器：
+a）环境变量
+b）更新/etc/hosts文件
+
+------环境变量------
+当两个容器链接，Docker会在目标容器上设置一些环境变量，以获取源容器的相关信息。
+首先，Docker会在每个通过--link选项指定别名的目标容器上设置一个<alias>_NAME环境变量。
+如果一个名为web的容器通过--link db:webdb被链接到一个名为db的数据库容器，那么web容器上会设置一个环境变量为WEBDB_NAME=/web/webdb
+
+以之前的为例，Docker 还会设置端口变量:
+$ sudo docker run --rm --name web2 --link db:db training/webapp env
+. . .
+DB_NAME=/web2/db
+DB_PORT=tcp://172.17.0.5:5432
+DB_PORT_5432_TCP=tcp://172.17.0.5:5432      //<name>_PORT_<port>_<protocol> 协议可以是 TCP 或 UDP
+DB_PORT_5432_TCP_PROTO=tcp
+DB_PORT_5432_TCP_PORT=5432
+DB_PORT_5432_TCP_ADDR=172.17.0.5
+. . .
+
+注：这些环境变量只设置给容器中的第一个进程，类似一些守护进程 (如 sshd ) 当他们派生 shells 时会清除这些变量
+
+------更新/etc/hosts文件------
+除了环境变量，Docker会在目标容器上添加相关主机条目到/etc/hosts中，上例中就是web容器。
+
+$ sudo docker run -t -i --rm --link db:db training/webapp /bin/bash
+[root@21af536003d1 /]# cat /etc/hosts
+172.17.0.7  aed84ee21bde
+. . .
+172.17.0.5  db
+
+注：/etc/host文件在源容器被重启之后会自动更新IP地址，而环境变量中的IP地址则不会自动更新的。
+Docker构建私有库
+Docker 官方提供了docker registry的构建方法docker-registry
+
+1
+2
+3
+4
+1）快速构建
+快速构建 docker registry 通过以下两步:
+安装 docker
+运行 registry:docker run -p 5000:5000 registry
+
+
+这种方法通过 Docker hub 使用官方镜像 official image from the Docker hub
+
+2）不使用容器构建registry
+
+安装必要的软件
+$ sudo apt-get install build-essential python-dev libevent-dev python-pip liblzma-dev
+
+配置 docker-registry
+sudo pip install docker-registry
+
+或者使用 github clone手动安装
+$ git clone https://github.com/dotcloud/docker-registry.git
+$ cd docker-registry/
+$ cp config/config_sample.yml config/config.yml
+$ mkdir /data/registry -p
+$ pip install .
+
+运行
+docker-registry
+
+
+------高级启动方式 [不推荐]------
+使用gunicorn控制:
+gunicorn -c contrib/gunicorn_config.py docker_registry.wsgi:application
+
+或者对外监听开放
+gunicorn --access-logfile - --error-logfile - -k gevent -b 0.0.0.0:5000 -w 4 --max-requests 100 docker_registry.wsgi:application
+
+3）提交指定容器到私有库
+$ docker tag ubuntu:12.04 私有库IP:5000/ubuntu:12.04
+$ docker push 私有库IP:5000/ubuntu

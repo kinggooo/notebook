@@ -46,6 +46,8 @@ docker save -o jre.tar wnz/jre:v1
 
 docker load < jre.tar
 
+mvn clean package dockerfile:build
+
 #运行容器
 docker run -d -p 9090:9090 --name app1 -v /Users/wangnz/Documents/mydev/docker/springboot/sb-hello:/opt/sb-hello kinggooo/jre java -jar sb-hello/sb-hello-1.0-SNAPSHOT.jar
 docker run -d -p 9091:9090 --name app2 -v /Users/wangnz/Documents/mydev/docker/springboot/sb-hello:/opt/sb-hello kinggooo/jre java -jar sb-hello/sb-hello-1.0-SNAPSHOT.jar

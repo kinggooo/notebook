@@ -97,7 +97,11 @@ firewall-cmd --list-all
 #查询端口开放情况
 firewall-cmd --query-port=80/tcp
 
+#docker和firewalld冲突的解决
 sudo firewall-cmd --permanent --zone=trusted --add-interface=docker0
 sudo firewall-cmd --permanent --zone=trusted --add-port=9090/tcp
 sudo firewall-cmd --reload
+
+或者用容器间通信机制不用iptable
+修改/etc/sysconfig/docker里的OPTIONS增加--iptables=false，重启docker服务，再启动redis，顺利开启。
 *******************************防火墙firewalld设置*******************************
