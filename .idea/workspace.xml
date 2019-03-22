@@ -2,17 +2,577 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4b40128-2cf8-4f65-be99-bb8d64e2240b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker/dockerfile/activemq/data/supervisord.conf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker/dockerfile/activemq/memo.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker/dockerfile/baseimages/Dockerfile_supervisor" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker/dockerfile/baseimages/memo.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker/dockerfile/java/memo.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker/dockerfile/redis/Dockerfile_alpine" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker/dockerfile/activemq/Dockerfile" afterPath="$PROJECT_DIR$/docker/dockerfile/activemq/Dockerfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker/dockerfile/activemq/memo.txt" afterPath="$PROJECT_DIR$/docker/dockerfile/activemq/memo.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker/dockerfile/java/Dockerfile" afterPath="$PROJECT_DIR$/docker/dockerfile/java/Dockerfile" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/activemq-all-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/LICENSE" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/NOTICE" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/README.txt" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/bin/activemq" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/bin/activemq-diag" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/bin/activemq.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/bin/env" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/bin/wrapper.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/conf/activemq.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/conf/broker-localhost.cert" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/conf/broker.ks" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/conf/broker.ts" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/conf/client.ks" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/conf/client.ts" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/conf/credentials-enc.properties" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/conf/credentials.properties" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/conf/groups.properties" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/conf/java.security" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/conf/jetty-realm.properties" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/conf/jetty.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/conf/jmx.access" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/conf/jmx.password" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/conf/log4j.properties" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/conf/logging.properties" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/conf/login.config" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/conf/users.properties" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/data/activemq.log" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/docs/index.html" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/docs/user-guide.html" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/docs/WebConsole-README.txt" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/activemq-broker-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/activemq-client-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/activemq-console-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/activemq-jaas-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/activemq-kahadb-store-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/activemq-openwire-legacy-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/activemq-protobuf-1.1.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/activemq-rar.txt" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/activemq-spring-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/activemq-web-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/geronimo-j2ee-management_1.1_spec-1.0.1.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/geronimo-jms_1.1_spec-1.1.1.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/geronimo-jta_1.0.1B_spec-1.0.1.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/hawtbuf-1.11.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/jcl-over-slf4j-1.7.25.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/slf4j-api-1.7.25.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/favicon.ico" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/index.html" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/chat.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/chat.html" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/index.html" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/send.html" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/style.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/bin/linux-x86-32/activemq" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/bin/linux-x86-32/libwrapper.so" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/bin/linux-x86-32/wrapper" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/bin/linux-x86-32/wrapper.conf" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/bin/linux-x86-64/activemq" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/bin/linux-x86-64/libwrapper.so" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/bin/linux-x86-64/wrapper" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/bin/linux-x86-64/wrapper.conf" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/bin/macosx/activemq" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/bin/macosx/libwrapper.jnilib" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/bin/macosx/wrapper" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/bin/macosx/wrapper.conf" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/activemq-demo.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/activemq-dynamic-network-broker1.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/activemq-dynamic-network-broker2.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/activemq-jdbc-performance.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/activemq-jdbc.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/activemq-leveldb-replicating.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/activemq-mqtt.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/activemq-scalability.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/activemq-security.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/activemq-specjms.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/activemq-static-network-broker1.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/activemq-static-network-broker2.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/activemq-stomp.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/activemq-throughput.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/activemq.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/camel.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/jetty-demo.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/log4j.properties" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/resin-web.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/conf/web.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/camel/activemq-camel-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/camel/camel-core-2.19.5.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/camel/camel-jms-2.19.5.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/camel/camel-spring-2.19.5.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/extra/mqtt-client-1.14.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/activeio-core-3.1.4.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/activemq-amqp-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/activemq-http-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/activemq-jdbc-store-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/activemq-jms-pool-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/activemq-leveldb-store-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/activemq-log4j-appender-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/activemq-mqtt-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/activemq-partition-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/activemq-pool-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/activemq-runtime-config-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/activemq-shiro-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/activemq-stomp-5.15.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/commons-beanutils-1.9.3.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/commons-codec-1.10.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/commons-collections-3.2.2.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/commons-dbcp2-2.1.1.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/commons-lang-2.6.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/commons-net-3.6.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/commons-pool2-2.4.2.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/geronimo-j2ee-connector_1.5_spec-2.0.0.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/guava-18.0.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/hawtbuf-proto-1.11.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/hawtdispatch-1.22.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/hawtdispatch-scala-2.11-1.22.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/hawtdispatch-transport-1.22.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/hawtjni-runtime-1.9.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/httpclient-4.5.6.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/httpcore-4.4.10.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/insight-log-core-1.2.0.Beta4.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/insight-log4j-1.2.0.Beta4.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/jackson-annotations-2.9.6.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/jackson-core-2.9.6.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/jackson-databind-2.9.6.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/jasypt-1.9.2.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/jasypt-spring31-1.9.2.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/jaxb2-basics-runtime-0.6.4.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/jettison-1.3.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/jmdns-3.4.1.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/leveldb-0.9.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/leveldb-api-0.9.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/leveldbjni-1.8.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/log4j-1.2.17.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/org.apache.servicemix.bundles.josql-1.5_5.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/org.linkedin.util-core-1.4.0.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/org.linkedin.zookeeper-impl-1.4.0.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/proton-j-0.29.0.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/scala-library-2.11.0.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/shiro-core-1.2.6.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/shiro-spring-1.2.6.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/slf4j-log4j12-1.7.25.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/snappy-0.2.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/snappy-java-1.1.2.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/spring-aop-4.3.18.RELEASE.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/spring-beans-4.3.18.RELEASE.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/spring-context-4.3.18.RELEASE.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/spring-core-4.3.18.RELEASE.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/spring-expression-4.3.11.RELEASE.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/spring-jms-4.3.18.RELEASE.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/spring-oxm-4.3.18.RELEASE.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/spring-tx-4.3.18.RELEASE.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/velocity-1.7.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/xbean-spring-4.2.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/xpp3-1.1.4c.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/xstream-1.4.10.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/optional/zookeeper-3.4.6.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/web/apache-el-8.0.33.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/web/apache-jsp-8.0.33.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/web/apache-jsp-9.2.25.v20180606.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/web/apache-jstl-9.2.25.v20180606.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/web/asm-5.0.4.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/web/geronimo-annotation_1.0_spec-1.1.1.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/web/jdom-1.0.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/web/jetty-all-9.2.25.v20180606.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/web/jolokia-core-1.6.0.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/web/json-simple-1.1.1.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/web/org.eclipse.jdt.core-3.8.2.v20130121.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/web/rome-1.0.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/web/spring-web-4.3.18.RELEASE.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/web/spring-webmvc-4.3.18.RELEASE.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/web/taglibs-standard-impl-1.2.5.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/web/taglibs-standard-spec-1.2.5.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/web/tomcat-servlet-api-8.0.53.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/lib/web/tomcat-websocket-api-8.0.53.jar" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/403.html" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/404.html" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/500.html" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/browse.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/connection.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/connections.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/graph.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/index.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/login.html" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/message.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/network.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/queueConsumers.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/queueGraph.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/queueProducers.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/queues.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/scheduled.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/send.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/slave.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/subscribers.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/topicProducers.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/topics.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/topicSubscribers.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/api/WEB-INF/web.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/activemq-logo.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/asf-logo.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/big-bullet.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/black-footer-bottom.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/black-footer-left.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/black-footer-right.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/bottom-red-bar.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/checker-bg.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/content-left.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/content-right.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/feed_atom.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/feed_rss.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/left-box-bottom.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/left-box-right.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/left-box-top.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/oval-arrow.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/right-box-bottom.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/right-box-left.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/right-box-top.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/small-bullet-gray.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/small-bullet-red.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/spacer.gif" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/top-red-bar.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/white-header-left.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/white-header-right.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/images/white-header-top.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/styles/prettify.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/styles/site.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/styles/sorttable.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/styles/type-settings.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/activemq-logo.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/asf-logo.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/big-bullet.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/black-footer-bottom.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/black-footer-left.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/black-footer-right.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/bottom-red-bar.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/checker-bg.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/content-left.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/content-right.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/feed_atom.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/feed_rss.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/left-box-bottom.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/left-box-right.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/left-box-top.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/oval-arrow.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/right-box-bottom.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/right-box-left.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/right-box-top.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/small-bullet-gray.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/small-bullet-red.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/spacer.gif" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/top-red-bar.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/white-header-left.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/white-header-right.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/images/white-header-top.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/amq.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/amq_dojo_adapter.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/amq_jquery_adapter.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/amq_prototype_adapter.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/chat.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/common.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/css.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/dojo.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/jquery-1.4.2.min.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/prettify.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/prototype.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/standardista-table-sorting.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/META-INF/LICENSE" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/META-INF/NOTICE" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/mqtt/chat.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/mqtt/chat.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/mqtt/index.html" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/mqtt/mqttws31.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/portfolio/portfolio.html" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/portfolio/portfolio.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/styles/prettify.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/styles/site.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/styles/sorttable.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/styles/type-settings.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/test/amq_test.html" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/WEB-INF/web.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/websocket/chat.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/websocket/chat.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/websocket/index.html" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/websocket/stomp.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/amqp/java/pom.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/amqp/java/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/amqp/python/address.py" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/amqp/python/content.py" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/amqp/python/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/amqp/python/receiver.py" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/amqp/python/sender.py" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/mqtt/java/pom.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/mqtt/java/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/mqtt/websocket/index.html" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/mqtt/websocket/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/pom.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/cpp/Listener.cpp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/cpp/Publisher.cpp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/cpp/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/csharp/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/ecommerce/build.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/ecommerce/README.txt" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/build.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/readme.txt" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/java/pom.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/java/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/swissarmy/build.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/swissarmy/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/cpp/Listener.cpp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/cpp/Publisher.cpp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/cpp/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/csharp/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/java/pom.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/java/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/perl/listener" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/perl/publisher" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/perl/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/php/listener.php" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/php/publisher.php" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/php/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/python/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/ruby/catstomp.rb" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/ruby/listener.rb" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/ruby/publisher.rb" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/ruby/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/ruby/stompcat.rb" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/websocket/index.html" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/websocket/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/decorators/footer.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/decorators/head.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/decorators/header.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/activemq-logo.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/asf-logo.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/big-bullet.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/black-footer-bottom.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/black-footer-left.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/black-footer-right.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/bottom-red-bar.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/checker-bg.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/content-left.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/content-right.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/feed_atom.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/feed_rss.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/left-box-bottom.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/left-box-right.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/left-box-top.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/oval-arrow.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/right-box-bottom.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/right-box-left.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/right-box-top.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/small-bullet-gray.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/small-bullet-red.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/spacer.gif" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/top-red-bar.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/white-header-left.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/white-header-right.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/images/white-header-top.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/js/common.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/js/css.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/js/prettify.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/js/standardista-table-sorting.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/META-INF/LICENSE" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/META-INF/NOTICE" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/styles/prettify.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/styles/site.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/styles/sorttable.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/styles/type-settings.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/test/dummy.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/test/index.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/test/systemProperties.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/dispatcher-servlet.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/web.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/webconsole-default.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/webconsole-embedded.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/webconsole-invm.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/webconsole-jndi.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/webconsole-osgi.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/webconsole-properties.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/webconsole-query.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/xml/queues.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/xml/subscribers.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/xml/topics.jsp" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/api/WEB-INF/classes/jolokia-access.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/mochi/__package__.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/mochi/MochiKit.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/plotkit/Base.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/plotkit/Canvas.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/plotkit/dummy.svg" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/plotkit/iecanvas.htc" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/plotkit/Layout.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/plotkit/SVG.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/plotkit/SweetCanvas.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/js/plotkit/SweetSVG.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/test/assets/jsunittest.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/test/assets/README" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps-demo/demo/test/assets/unittest.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/amqp/java/src/main/java/example/Listener.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/amqp/java/src/main/java/example/Publisher.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/mqtt/java/src/main/java/example/Listener.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/mqtt/java/src/main/java/example/Publisher.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/mqtt/websocket/css/bootstrap.min.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/mqtt/websocket/css/bootstrap.min.responsive.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/mqtt/websocket/img/glyphicons-halflings-white.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/mqtt/websocket/img/glyphicons-halflings.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/mqtt/websocket/js/jquery-1.7.2.min.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/mqtt/websocket/js/mqttws31.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-composite-destinations/pom.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-composite-destinations/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-durable-sub/pom.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-durable-sub/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-exclusive-consumer/pom.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-exclusive-consumer/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-message-browser/pom.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-message-browser/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-queue/pom.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-queue/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-queue-selector/pom.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-queue-selector/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-temp-destinations/pom.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-temp-destinations/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-topic/pom.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-topic/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-transaction/pom.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-transaction/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-wildcard-consumer/pom.xml" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-wildcard-consumer/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/csharp/ActiveMQExamples/ActiveMQExamples.sln" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/csharp/ActiveMQExamples/ActiveMQExamples.userprefs" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/ecommerce/src/Retailer.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/ecommerce/src/Supplier.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/ecommerce/src/TransactionsDemo.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/ecommerce/src/Vendor.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/conf/log4j.properties" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/java/src/main/java/example/Listener.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/java/src/main/java/example/Publisher.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/swissarmy/src/CommandLineSupport.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/swissarmy/src/ConsumerTool.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/swissarmy/src/EmbeddedBroker.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/swissarmy/src/jndi.properties" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/swissarmy/src/log4j-jms.properties" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/swissarmy/src/Log4jJMSAppenderExample.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/swissarmy/src/ProducerAndConsumerTool.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/swissarmy/src/ProducerTool.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/swissarmy/src/RequesterTool.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/swissarmy/src/StompExample.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/swissarmy/src/TopicListener.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/swissarmy/src/TopicPublisher.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/csharp/ActiveMQExamples/ActiveMQExamples.sln" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/csharp/ActiveMQExamples/ActiveMQExamples.userprefs" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/java/src/main/java/example/Listener.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/java/src/main/java/example/Publisher.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/python/stompest/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/python/stomppy/listener.py" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/python/stomppy/publisher.py" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/python/stomppy/readme.md" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/websocket/css/bootstrap.min.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/websocket/css/bootstrap.min.responsive.css" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/websocket/img/glyphicons-halflings-white.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/websocket/img/glyphicons-halflings.png" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/websocket/js/jquery-1.7.2.min.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/websocket/js/stomp.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/js/mochi/__package__.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/js/mochi/MochiKit.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/js/plotkit/Base.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/js/plotkit/Canvas.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/js/plotkit/dummy.svg" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/js/plotkit/iecanvas.htc" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/js/plotkit/Layout.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/js/plotkit/SVG.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/js/plotkit/SweetCanvas.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/js/plotkit/SweetSVG.js" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/classes/org/apache/activemq/web/WebConsoleStarter$OsgiUtil.class" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/classes/org/apache/activemq/web/WebConsoleStarter.class" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/jspf/headertags.jspf" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-composite-destinations/src/main/java/example/composite/dest/Consumer.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-composite-destinations/src/main/java/example/composite/dest/Producer.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-durable-sub/src/main/java/example/topic/durable/Publisher.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-durable-sub/src/main/java/example/topic/durable/Subscriber.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-exclusive-consumer/src/main/java/example/queue/exclusive/Consumer.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-exclusive-consumer/src/main/java/example/queue/exclusive/Producer.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-message-browser/src/main/java/example/browser/Browser.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-message-browser/src/main/java/example/browser/Producer.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-queue-selector/src/main/java/example/queue/selector/Consumer.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-queue-selector/src/main/java/example/queue/selector/Producer.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-temp-destinations/src/main/java/example/tempdest/Consumer.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-temp-destinations/src/main/java/example/tempdest/ProducerRequestReply.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-transaction/src/main/java/example/transaction/Client.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-wildcard-consumer/src/main/java/example/wildcard/Client.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/csharp/ActiveMQExamples/Listener/AssemblyInfo.cs" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/csharp/ActiveMQExamples/Listener/Listener.cs" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/csharp/ActiveMQExamples/Listener/Listener.csproj" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/csharp/ActiveMQExamples/Listener/NMSTracer.cs" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/csharp/ActiveMQExamples/Publisher/AssemblyInfo.cs" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/csharp/ActiveMQExamples/Publisher/NMSTracer.cs" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/csharp/ActiveMQExamples/Publisher/Publisher.cs" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/csharp/ActiveMQExamples/Publisher/Publisher.csproj" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/QueuePTPSamples/QueueMonitor/QueueMonitor.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/QueuePTPSamples/QueueMonitor/QueueMonitor.properties" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/QueuePTPSamples/QueueRoundTrip/QueueRoundTrip.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/QueuePTPSamples/RequestReply/Replier.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/QueuePTPSamples/RequestReply/Requestor.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/QueuePTPSamples/SelectorTalk/SelectorTalk.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/QueuePTPSamples/Talk/Talk.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/QueuePTPSamples/TransactedTalk/TransactedTalk.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/TopicPubSubSamples/Chat/Chat.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/TopicPubSubSamples/DurableChat/DurableChat.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/TopicPubSubSamples/HierarchicalChat/HierarchicalChat.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/TopicPubSubSamples/MessageMonitor/MessageMonitor.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/TopicPubSubSamples/MessageMonitor/MessageMonitor.properties" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/TopicPubSubSamples/RequestReply/TopicReplier.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/TopicPubSubSamples/RequestReply/TopicRequestor.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/TopicPubSubSamples/SelectorChat/SelectorChat.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/exploring-jms/TopicPubSubSamples/TransactedChat/TransactedChat.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/csharp/ActiveMQExamples/Listener/AssemblyInfo.cs" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/csharp/ActiveMQExamples/Listener/Listener.cs" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/csharp/ActiveMQExamples/Listener/Listener.csproj" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/csharp/ActiveMQExamples/Listener/NMSTracer.cs" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/csharp/ActiveMQExamples/Publisher/AssemblyInfo.cs" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/csharp/ActiveMQExamples/Publisher/NMSTracer.cs" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/csharp/ActiveMQExamples/Publisher/Publisher.cs" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/csharp/ActiveMQExamples/Publisher/Publisher.csproj" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/python/stompest/async/__init__.py" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/python/stompest/async/listener.py" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/python/stompest/async/publisher.py" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/python/stompest/sync/__init__.py" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/python/stompest/sync/listener.py" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/stomp/python/stompest/sync/publisher.py" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/classes/org/apache/activemq/web/config/OsgiConfiguration.class" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/CopyMessage.class" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/CreateDestination.class" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/CreateSubscriber.class" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/DeleteDestination.class" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/DeleteJob.class" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/DeleteMessage.class" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/DeleteSubscriber.class" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/MoveMessage.class" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/PurgeDestination.class" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/RetryMessage.class" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/classes/org/apache/activemq/web/controller/SendMessage.class" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/classes/org/apache/activemq/web/filter/ApplicationContextFilter$1.class" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/classes/org/apache/activemq/web/filter/ApplicationContextFilter$2.class" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/classes/org/apache/activemq/web/filter/ApplicationContextFilter.class" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/classes/org/apache/activemq/web/handler/BindingBeanNameUrlHandlerMapping.class" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/tags/form/checkbox.tag" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/tags/form/escape.tag" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/tags/form/forEachMapEntry.tag" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/tags/form/option.tag" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/tags/form/short.tag" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/tags/form/text.tag" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/tags/form/tooltip.tag" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/tags/form/uri.tag" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/tags/jms/forEachConnection.tag" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/tags/jms/forEachMessage.tag" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/tags/jms/formatTimestamp.tag" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/webapps/admin/WEB-INF/tags/jms/persistent.tag" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-queue/src/main/java/example/queue/Consumer.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-queue/src/main/java/example/queue/Producer.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-queue/src/main/resources/log4j.properties" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-topic/src/main/java/example/topic/Publisher.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-topic/src/main/java/example/topic/Subscriber.java" />
+    <ignored path="docker/dockerfile/activemq/apache-activemq-5.15.8/examples/openwire/advanced-scenarios/jms-example-topic/src/main/resources/log4j.properties" />
+    <ignored path="docker/dockerfile/java/jre/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,8 +585,68 @@
       <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docker/dockerfile/activemq/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="49" lean-forward="true" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
+            <state relative-caret-position="135">
+              <caret line="9" column="25" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="memo.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docker/dockerfile/activemq/memo.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="279" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="279" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docker/dockerfile/redis/Dockerfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dockerfile_alpine" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docker/dockerfile/redis/Dockerfile_alpine">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" column="31" lean-forward="true" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dockerfile2" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docker/dockerfile/nginx/Dockerfile2">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="memo.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docker/dockerfile/nginx/memo.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="52" lean-forward="false" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docker/dockerfile/nginx/Dockerfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -36,17 +656,7 @@
         <entry file="file://$PROJECT_DIR$/docker/dockerfile/activemq/data/supervisord.conf">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="memo.txt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/docker/dockerfile/activemq/memo.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="47" lean-forward="true" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+              <caret line="5" column="40" lean-forward="false" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -55,8 +665,8 @@
       <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docker/dockerfile/mongodb/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="465">
+              <caret line="31" column="90" lean-forward="false" selection-start-line="31" selection-start-column="73" selection-end-line="31" selection-end-column="90" />
               <folding />
             </state>
           </provider>
@@ -106,16 +716,17 @@
         <option value="$PROJECT_DIR$/docker/dockerfile/baseimages/Dockerfile_supervisor" />
         <option value="$PROJECT_DIR$/docker/dockerfile/baseimages/memo.txt" />
         <option value="$PROJECT_DIR$/docker/dockerfile/java/memo.txt" />
+        <option value="$PROJECT_DIR$/docker/dockerfile/activemq/data/supervisord.conf" />
         <option value="$PROJECT_DIR$/docker/dockerfile/java/Dockerfile" />
         <option value="$PROJECT_DIR$/docker/dockerfile/activemq/Dockerfile" />
         <option value="$PROJECT_DIR$/docker/dockerfile/activemq/memo.txt" />
-        <option value="$PROJECT_DIR$/docker/dockerfile/activemq/data/supervisord.conf" />
+        <option value="$PROJECT_DIR$/docker/dockerfile/redis/Dockerfile_alpine" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
-    <option name="width" value="1872" />
+    <option name="width" value="1874" />
     <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -138,8 +749,6 @@
     <panes>
       <pane id="Scratches" />
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -211,17 +820,14 @@
             <path>
               <item name="notebook" type="b2602c69:ProjectViewProjectNode" />
               <item name="notebook" type="462c0819:PsiDirectoryNode" />
-              <item name="git" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="notebook" type="b2602c69:ProjectViewProjectNode" />
-              <item name="notebook" type="462c0819:PsiDirectoryNode" />
               <item name="linux" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -230,11 +836,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docker/dockerfile/redis" />
       <recent name="$PROJECT_DIR$/docker/dockerfile/activemq/data" />
       <recent name="$PROJECT_DIR$/docker/dockerfile/java" />
       <recent name="$PROJECT_DIR$/docker/dockerfile/baseimages" />
       <recent name="$PROJECT_DIR$/docker/dockerfile/activemq" />
-      <recent name="$PROJECT_DIR$/docker/dockerfile/nginx" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -525,11 +1131,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552643880502</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="upd">
+      <created>1552902804113</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1552902804113</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1872" height="1057" extended-state="6" />
+    <frame x="0" y="23" width="1874" height="1057" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -537,26 +1150,26 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32952183" sideWeight="0.53497267" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32952183" sideWeight="0.54366815" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32952183" sideWeight="0.46502733" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32952183" sideWeight="0.45633188" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17759563" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17740175" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -575,13 +1188,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/git/git.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vue/vue_test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -620,13 +1226,6 @@
     <entry file="file://$PROJECT_DIR$/docker/dockerfile/redis/redis.conf.cn">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4146">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/redis/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
@@ -797,7 +1396,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -805,7 +1403,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33015">
           <caret line="2201" column="0" lean-forward="false" selection-start-line="2201" selection-start-column="0" selection-end-line="2201" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -813,7 +1410,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/baseimages/memo.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/redis/supervisord.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/supervisor">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/mongodb/memo.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -821,6 +1445,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/nginx/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -833,18 +1465,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/nginx/Dockerfile">
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/mongodb/supervisord.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="26" />
-          <folding />
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/java/Dockerfile">
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/mongodb/config.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="590">
+          <caret line="171" column="25" lean-forward="false" selection-start-line="171" selection-start-column="25" selection-end-line="171" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/activemq/data/supervisord.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <caret line="5" column="40" lean-forward="false" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -853,86 +1491,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/baseimages/memo.txt">
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/java/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/baseimages/Dockerfile_supervisor">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/redis/supervisord.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/mongodb/supervisord.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/supervisor">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/mongodb/config.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="171" column="25" lean-forward="false" selection-start-line="171" selection-start-column="25" selection-end-line="171" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/mongodb/memo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-          <folding />
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docker/dockerfile/mongodb/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/activemq/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="49" lean-forward="true" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/activemq/data/supervisord.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+        <state relative-caret-position="465">
+          <caret line="31" column="90" lean-forward="false" selection-start-line="31" selection-start-column="73" selection-end-line="31" selection-end-column="90" />
           <folding />
         </state>
       </provider>
@@ -940,7 +1512,38 @@
     <entry file="file://$PROJECT_DIR$/docker/dockerfile/activemq/memo.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="10" column="47" lean-forward="true" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+          <caret line="10" column="279" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="279" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/redis/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/activemq/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="25" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/baseimages/Dockerfile_supervisor">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/redis/Dockerfile_alpine">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="31" lean-forward="true" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
           <folding />
         </state>
       </provider>

@@ -4,8 +4,9 @@ wget https://mirrors.tuna.tsinghua.edu.cn/apache//activemq/5.15.8/apache-activem
 tar -zxvf apache-activemq-5.15.8-bin.tar.gz
 
 docker build -t kinggooo/activemq .
+docker build -t act1 .
 
 #运行容器
 docker run -d -p 8161:8161 -p 61616:61616 --name activemq -v /Users/wangnz/Documents/mydev/IdeaProjects/notebook/docker/dockerfile/activemq/data:/opt/data --privileged=true kinggooo/activemq
-
-docker run -it --name act1 kinggooo/activemq sh
+docker run -d -p 8161:8161 -p 61616:61616 --name act1 -v /Users/wangnz/Documents/mydev/IdeaProjects/notebook/docker/dockerfile/activemq/data:/opt/data -v /Users/wangnz/Documents/mydev/IdeaProjects/notebook/docker/dockerfile/activemq/data:/opt/activemq/data --privileged=true act1
+docker run -it --name act1 act1 sh
