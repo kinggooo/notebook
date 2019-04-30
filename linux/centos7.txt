@@ -83,16 +83,15 @@ systemctl disable firewalld.service
 systemctl enable firewalld.service
 
 #放开http服务 
-firewall-cmd --permanent --zone=public --add-service=http
-firewall-cmd --permanent --zone=public --add-service=https
+firewall-cmd --zone=public --add-service=http --permanent
+firewall-cmd --zone=public --add-service=https --permanent
 
 #重新加载设置 
 firewall-cmd --reload
 
 #查看端口
-firewall-cmd --permanent --list-port
+firewall-cmd --list-port --permanent
 firewall-cmd --list-all
-
 
 #查询端口开放情况
 firewall-cmd --query-port=80/tcp
