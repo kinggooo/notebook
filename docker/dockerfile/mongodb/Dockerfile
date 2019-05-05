@@ -30,3 +30,5 @@ CMD ["/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]
 #wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.4.3.tgz
 #docker build -t "mongodb" .
 #docker run -d -p 9999:22 -p 30000:30000 -v /opt/docker/mongodb:/mongodb --privileged=true mongo
+#docker run -d -p 27017:27017 --name mgdb -v /Users/wangnz/Documents/mydev/docker/mongo:/etc/mongo mongo --config /etc/mongo/mongod.conf
+#docker run -d -p 27017:27017 --name mgdb mongo
