@@ -1,6 +1,6 @@
 ############################################
 # version : wangnz/redis:v1
-# desc : 当前版本安装的mongodb
+# desc : redis
 ############################################
 #FROM centos7:latest
 FROM sshd

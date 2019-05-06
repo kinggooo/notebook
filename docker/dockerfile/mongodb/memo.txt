@@ -4,6 +4,23 @@ use admin
 db.shutdownServer()
 ./mongod -shutdown -dbpath=/Users/wangnz/tool/data/mongodb
 
+wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.9.tgz
+wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.4.3.tgz
+#docker build -f Dockerfile1 -t "kinggooo/mongo" .
+#docker run -d -p 27017:27017 --name mgdb -v /Users/wangnz/Documents/mydev/docker/mongo:/opt/data kinggooo/mongo
+#docker run -d -p 27017:27017 --name mgdb -v /home/wangnz/data/mongo:/opt/data kinggooo/mongo
+
+docker run -d -p 9999:22 -p 30000:30000 -v /opt/docker/mongodb:/mongodb --privileged=true mongo
+
+docker run -d -p 27017:27017 --name mgdb -v /home/wangnz/data/mongo:/etc/mongo mongo --config /etc/mongo/mongod.conf
+docker run -d -p 27017:27017 --name mgdb mongo
+
+chcon -Rt svirt_sandbox_file_t /home/wangnz/data/mongo
+
+
+docker run -ti --rm --entrypoint="/bin/bash" mongo -c "whoami && id"
+docker run -ti --rm --entrypoint="/bin/bash" mongo -c "ls -la /etc/mongo"
+docker run -ti --rm -v /home/wangnz/data/mongo:/etc/mongo --entrypoint="/bin/bash" mongo -c "ls -la /etc/mongo"
 
 
 --quiet # 安静输出
