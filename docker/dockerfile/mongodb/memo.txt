@@ -4,6 +4,32 @@ use admin
 db.shutdownServer()
 ./mongod -shutdown -dbpath=/Users/wangnz/tool/data/mongodb
 
+
+ 用户角色
+数据库用户角色
+read:允许用户读取指定的数据库
+readWrite:允许用户读写指定数据库
+数据库管理角色
+dbAdmin:允许用户在指定数据库执行管理函数，创建索引，删除索引，查看统计.
+userAdmin:允许用户向system.users集合写入，可以在指定数据库创建删除管理账号
+dbOwner:指定数据库最大的权限，是readWrite+dbAdmin+userAdmin的和。
+群集管理角色（只在admin数据库可用）
+clusterAdmin:用户所有分片和复制集相关函数的管理权限
+clusterManager:管理和监控群集。
+clusterMonitor:只能访问监控工具。
+hostManager:监视和管理。
+备份和还原角色
+backup
+restore
+所有角色(只在admin数据库可用)
+readAnyDatabase：赋予用户所有数据库的读权限
+readWriteAnyDatabase:赋予用户所有数据库的读写权限
+userAdminAnyDatabase：赋予所有数据库的useradmin权限
+dbAdminAnyDatabase：赋予所有数据库的dbadmin权限。
+超级角色(只在admin可用)
+root：超级账号，超级权限
+
+
 wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.9.tgz
 wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.4.3.tgz
 #docker build -f Dockerfile1 -t "kinggooo/mongo" .
@@ -62,3 +88,30 @@ docker run -ti --rm -v /home/wangnz/data/mongo:/etc/mongo --entrypoint="/bin/bas
 --sysinfo # 打印一些诊断系统信息
 --upgrade # 如果需要升级数据库
 
+mongo admin --username admin  --host xx.xx.xx.xx --port 27017 --password
+
+db.createUser(
+{
+user:  "dba",
+pwd:  "dba",
+roles:  [ { role: "userAdminAnyDatabase", db: "admin" } ]
+}
+)
+
+db.dropUser(‘gao’)
+db.changeUserPassword(“要修改密码的用户名”,”新密码”)
+db.updateUser( "test1",
+{
+               roles:[
+               {role:"read",db:"admin"}
+              ]   ,
+            pwd:"test1password"
+}
+)
+db.table.find()
+db.table.insert()
+db.table.updateOne()
+db.table.updateMany()
+db.table.replaceOne()
+db.table.deleteMany({})
+db.table.deleteOne({})
