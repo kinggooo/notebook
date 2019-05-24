@@ -1,0 +1,16 @@
+wget http://download.redis.io/releases/redis-3.2.8.tar.gz
+docker build -t redis .
+docker build -f Dockerfile1 -t redis .
+docker build -f Dockerfile1 -t "kinggooo/mongo" .
+
+docker run -d -p 9998:22 -p 6379:6379 -v /opt/docker/redis:/redis --privileged=true redis
+docker run -d -p 27017:27017 --name mgdb -v /home/wangnz/data/mongo:/etc/mongo mongo --config /etc/mongo/mongod.conf
+
+docker run -d -p 6379:6379 --name rds -v /Users/wangnz/Documents/mydev/docker/redis:/opt/data kinggooo/redis 本地
+docker run -d -p 6379:6379 --name rds -v /home/wangnz/data/redis/data:/data -v /home/wangnz/data/redis/r.conf:/opt/r.conf redis:alpine redis-server /opt/r.conf 远程
+
+
+
+systemctl stop firewalld.service 关闭centos7防火墙
+systemctl disable firewalld.service 禁用centos7防火墙
+systemctl restart docker.service

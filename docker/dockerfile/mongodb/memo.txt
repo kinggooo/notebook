@@ -32,9 +32,11 @@ root：超级账号，超级权限
 
 wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.9.tgz
 wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.4.3.tgz
-#docker build -f Dockerfile1 -t "kinggooo/mongo" .
-#docker run -d -p 27017:27017 --name mgdb -v /Users/wangnz/Documents/mydev/docker/mongo:/opt/data kinggooo/mongo
-#docker run -d -p 27017:27017 --name mgdb -v /home/wangnz/data/mongo:/opt/data kinggooo/mongo
+
+docker build -f Dockerfile1 -t "kinggooo/mongo" .
+
+#docker run -d -p 27017:27017 --name mgdb -v /Users/wangnz/Documents/mydev/docker/mongo:/opt/data kinggooo/mongo 本地
+#docker run -d -p 27017:27017 --name mgdb -v /home/wangnz/data/mongo:/opt/data kinggooo/mongo 远程
 
 docker run -d -p 9999:22 -p 30000:30000 -v /opt/docker/mongodb:/mongodb --privileged=true mongo
 
