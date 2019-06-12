@@ -91,6 +91,8 @@ docker run -ti --rm -v /home/wangnz/data/mongo:/etc/mongo --entrypoint="/bin/bas
 --upgrade # 如果需要升级数据库
 
 mongo admin --username admin  --host xx.xx.xx.xx --port 27017 --password
+mongo admin --username admin  --host 148.70.47.196 --port 27017 --password
+
 
 db.createUser(
 {
