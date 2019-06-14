@@ -1,0 +1,7 @@
+
+
+yum -y install wget
+
+docker build -t bigdata .
+
+docker run -it --name bd bigdata /bin/bash
