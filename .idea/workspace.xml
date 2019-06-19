@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4b40128-2cf8-4f65-be99-bb8d64e2240b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_jdk.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_mvn.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_scala.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_zoo.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/install_zoo.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/start/zoo_start.sh" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install_jdk.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install_mvn.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install_scala.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install_zoo.sh" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/Dockerfile" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/Dockerfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install.sh" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/install.sh" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -660,7 +656,7 @@
         <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_jdk.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -1241,7 +1237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1560496863272</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="upd">
+      <created>1560926267687</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1560926267687</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1649,7 +1652,7 @@
     <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_jdk.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
         </state>
       </provider>
