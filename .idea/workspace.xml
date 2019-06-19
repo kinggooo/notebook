@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4b40128-2cf8-4f65-be99-bb8d64e2240b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install_jdk.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install_mvn.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install_scala.sh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install_zoo.sh" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo2.cfg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo3.cfg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo.cfg" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo1.cfg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/Dockerfile" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/Dockerfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install.sh" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_jdk.sh" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_jdk.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_mvn.sh" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_mvn.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_scala.sh" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_scala.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_zoo.sh" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_zoo.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/start/zoo_start.sh" afterPath="$PROJECT_DIR$/docker/dockerfile/bigdata/start/zoo_start.sh" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -642,21 +647,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zoo.cfg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo.cfg">
+      <file leaf-file-name="install_zoo.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_zoo.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="75">
+              <caret line="5" column="9" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="install_jdk.sh" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_jdk.sh">
+      <file leaf-file-name="install.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/install/install.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="60">
+              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -665,18 +670,48 @@
       <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="47" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="47" />
+            <state relative-caret-position="285">
+              <caret line="19" column="35" lean-forward="false" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zoo_start.sh" pinned="false" current-in-tab="false">
+      <file leaf-file-name="zoo_start.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/start/zoo_start.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="45" />
+            <state relative-caret-position="135">
+              <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="zoo1.cfg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo1.cfg">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="33" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="zoo2.cfg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo2.cfg">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="33" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="zoo3.cfg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo3.cfg">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -710,11 +745,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/docker/dockerfile/mongodb/config.txt" />
-        <option value="$PROJECT_DIR$/redis/install.txt" />
-        <option value="$PROJECT_DIR$/mysql/install" />
-        <option value="$PROJECT_DIR$/docker/dockerfile/mysql/install" />
         <option value="$PROJECT_DIR$/python/memo.txt" />
         <option value="$PROJECT_DIR$/docker/dockerfile/mysql/Dockerfile5.6" />
         <option value="$PROJECT_DIR$/docker/dockerfile/mysql/Dockerfile5.7" />
@@ -756,9 +786,16 @@
         <option value="$PROJECT_DIR$/docker/dockerfile/bigdata/install.sh" />
         <option value="$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo.cfg" />
         <option value="$PROJECT_DIR$/docker/dockerfile/bigdata/install_zoo.sh" />
-        <option value="$PROJECT_DIR$/docker/dockerfile/bigdata/Dockerfile" />
-        <option value="$PROJECT_DIR$/docker/dockerfile/bigdata/start/zoo_start.sh" />
+        <option value="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_mvn.sh" />
         <option value="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_jdk.sh" />
+        <option value="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_scala.sh" />
+        <option value="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install.sh" />
+        <option value="$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo1.cfg" />
+        <option value="$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo2.cfg" />
+        <option value="$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo3.cfg" />
+        <option value="$PROJECT_DIR$/docker/dockerfile/bigdata/start/zoo_start.sh" />
+        <option value="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_zoo.sh" />
+        <option value="$PROJECT_DIR$/docker/dockerfile/bigdata/Dockerfile" />
       </list>
     </option>
   </component>
@@ -865,11 +902,11 @@
       <recent name="$PROJECT_DIR$/docker/dockerfile/bigdata/conf" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docker/dockerfile/bigdata/conf" />
       <recent name="$PROJECT_DIR$/docker/dockerfile/bigdata/install" />
       <recent name="$PROJECT_DIR$/docker/dockerfile/bigdata" />
       <recent name="$PROJECT_DIR$/docker" />
       <recent name="$PROJECT_DIR$/docker/dockerfile/redis" />
-      <recent name="$PROJECT_DIR$/docker/dockerfile/activemq" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1244,7 +1281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1560926267687</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="upd">
+      <created>1560926298773</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1560926298773</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1296,34 +1340,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/mysql/memo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="11" lean-forward="false" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/第一本docker书.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/linux/nginx.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="60" column="59" lean-forward="false" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/mysql/install">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/linux/maven">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1585,50 +1601,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="47" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/bigdata.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_zoo.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="29" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/install_zoo.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/start/zoo_start.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/install/install.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1641,18 +1617,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo.cfg">
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_jdk.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_jdk.sh">
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_mvn.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_scala.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo2.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="33" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo3.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/install/install.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_zoo.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="9" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo1.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="33" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="35" lean-forward="false" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/bigdata.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/dockerfile/bigdata/start/zoo_start.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
           <folding />
         </state>
       </provider>

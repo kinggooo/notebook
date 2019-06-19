@@ -5,4 +5,3 @@ echo 'export JRE_HOME=$JAVA_HOME/jre' >> /etc/bashrc
 echo 'export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib:$CLASSPATH' >> /etc/bashrc
 echo 'export PATH=$JAVA_HOME/bin:$PATH' >> /etc/bashrc
 #source /etc/bashrc
-java -version
