@@ -2,6 +2,19 @@
 
 yum -y install wget
 
-docker build -t bigdata .
+docker build -f BaseDockerfile -t bdbase .
+docker run -itd -p 5022:22 --privileged --name tmp bdbase init
+docker exec -it tmp /bin/bash
+systemctl start sshd.service
+systemctl enable sshd.service
 
-docker run -it --name bd bigdata /bin/bash
+netstat -an | grep 22
+
+docker build -f Dockerfile -t bigdata .
+docker run -it --name bd bdbase /bin/bash
+
+
+
+source install.sh
+
+http://mirror.bit.edu.cn/apache/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz

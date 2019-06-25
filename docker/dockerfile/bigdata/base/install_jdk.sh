@@ -1,5 +1,5 @@
-tar -zxvf /opt/soft/jdk-8u211-linux-x64.tar.gz -C /opt/soft/
-rm -rf /opt/soft/jdk-8u211-linux-x64.tar.gz
+#tar -zxvf /opt/soft/jdk-8u211-linux-x64.tar.gz -C /opt/soft/
+#rm -rf /opt/soft/jdk-8u211-linux-x64.tar.gz
 ln -s /opt/soft/jdk1.8.0_211 /usr/local/jdk
 echo 'export JAVA_HOME=/usr/local/jdk' >> /etc/bashrc
 echo 'export JRE_HOME=$JAVA_HOME/jre' >> /etc/bashrc
