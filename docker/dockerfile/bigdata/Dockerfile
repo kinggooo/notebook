@@ -5,7 +5,7 @@ MAINTAINER wangnz wangnz@email.com
 #COPY ./resources/apache-maven-3.6.1-bin.tar.gz /opt/soft/
 #COPY ./resources/scala-2.13.0.tgz /opt/soft/
 #COPY ./resources/apache-zookeeper-3.5.5-bin.tar /opt/soft/
-COPY ./resources/hadoop-3.1.2.tar /opt/soft/
+COPY ./resources/hadoop-3.1.2 /opt/soft/
 #拷贝安装代码
 COPY ./install/install_jdk.sh /opt/install/install_jdk.sh
 COPY ./install/install_mvn.sh /opt/install/install_mvn.sh

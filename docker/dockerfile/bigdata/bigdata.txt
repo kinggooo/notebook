@@ -2,15 +2,19 @@
 
 yum -y install wget
 
-docker build -f BaseDockerfile -t bdbase .
-docker run -itd -p 5022:22 --privileged --name tmp bdbase init
-docker exec -it tmp /bin/bash
+docker build -t bdbase .
+docker run -itd -h tmp1 -p 5022:22 --privileged --name tmp1 bdbase init
+docker run -itd -h tmp2 -p 5023:22 --privileged --name tmp2 bdbase init
+
+docker exec -it tmp1 /bin/bash
+docker exec -it tmp2 /bin/bash
+
 systemctl start sshd.service
 systemctl enable sshd.service
 
 netstat -an | grep 22
 
-docker build -f Dockerfile -t bigdata .
+docker build -t bd .
 docker run -it --name bd bdbase /bin/bash
 
 
