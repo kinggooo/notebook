@@ -1,7 +1,7 @@
 FROM centos
 MAINTAINER wangnz wangnz@email.com
 #拷贝程序文件
-COPY ./resources/jdk1.8.0_211 /opt/soft/
+COPY ./resources/jdk1.8.0_211 /opt/soft/jdk1.8.0_211
 
 #拷贝安装代码
 ENV INSTALL_DIR=/opt/install
