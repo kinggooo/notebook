@@ -1,9 +1,10 @@
-docker build -f Dockerfile1 -t mysql .
-docker run -it -h tmp1 --name tmp1 mysql /bin/bash
+docker build -f Dockerfile1 -t kinggooo/mysql .
+docker run -d -p 3306:3306 --name mysql1 kinggooo/mysql
+
+
+
 
 docker run -d -p 3306:3306 --name mysql1 -e MYSQL_ROOT_PASSWORD=123456 mysql:latest
-
-
 docker run -d -p 3306:3306 --name master -v /home/wnz/mysql/master/cnf:/etc/mysql/conf.d -v /home/wnz/mysql/master/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 mysql:latest
 docker run -d -p 3307:3306 --name slave -v /home/wnz/mysql/slave/cnf:/etc/mysql/conf.d -v /home/wnz/mysql/slave/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 mysql:latest
 

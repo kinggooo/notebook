@@ -1,13 +1,13 @@
-FROM centos
+FROM mysql:5.7
 MAINTAINER wangnz wangnz@email.com
 
-#RUN yum -y update && yum -y install libaio
+#设置免密登录
+ENV MYSQL_ALLOW_EMPTY_PASSWORD yes
 
-#拷贝程序文件
-ENV INSTALL_DIR=/opt/install
-COPY ./install_mysql.sh $INSTALL_DIR/install_mysql.sh
-COPY ./my.cnf $INSTALL_DIR/my.cnf
-COPY ./resources/mysql-5.7.18-linux-glibc2.5-x86_64 /opt/mysql
+#将所需文件放到容器中
+COPY setup.sh /mysql/setup.sh
+COPY schema.sql /mysql/schema.sql
+COPY privileges.sql /mysql/privileges.sql
 
-#RUN source $INSTALL_DIR/install_mysql.sh
-WORKDIR $INSTALL_DIR
+#设置容器启动时执行的命令
+CMD ["sh", "/mysql/setup.sh"]
