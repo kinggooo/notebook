@@ -1,0 +1,13 @@
+FROM centos
+MAINTAINER wangnz wangnz@email.com
+
+#RUN yum -y update && yum -y install libaio
+
+#拷贝程序文件
+ENV INSTALL_DIR=/opt/install
+COPY ./install_mysql.sh $INSTALL_DIR/install_mysql.sh
+COPY ./my.cnf $INSTALL_DIR/my.cnf
+COPY ./resources/mysql-5.7.18-linux-glibc2.5-x86_64 /opt/mysql
+
+#RUN source $INSTALL_DIR/install_mysql.sh
+WORKDIR $INSTALL_DIR

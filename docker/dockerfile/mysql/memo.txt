@@ -1,3 +1,6 @@
+docker build -f Dockerfile1 -t mysql .
+docker run -it -h tmp1 --name tmp1 mysql /bin/bash
+
 docker run -d -p 3306:3306 --name mysql1 -e MYSQL_ROOT_PASSWORD=123456 mysql:latest
 
 
@@ -8,9 +11,6 @@ chcon -Rt svirt_sandbox_file_t /home/wnz/mysql/master/cnf
 chcon -Rt svirt_sandbox_file_t /home/wnz/mysql/master/data
 chcon -Rt svirt_sandbox_file_t /home/wnz/mysql/slave/cnf
 chcon -Rt svirt_sandbox_file_t /home/wnz/mysql/slave/data
-
-
-
 
 CHANGE MASTER TO MASTER_HOST='172.17.0.2',MASTER_USER='root', MASTER_PASSWORD='123456',MASTER_LOG_FILE='mysql-bin.000002',MASTER_LOG_POS=155;
 

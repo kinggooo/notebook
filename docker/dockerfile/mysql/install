@@ -48,18 +48,28 @@ service mysqld start
 
 #登录
 ./mysql -u root -p -S /opt/mysql/run/mysqld.sock
-./mysql -u root -p
+
 #修改默认密码
-./mysqladmin -u root -p password
-or
+1.mysqladmin -uroot -pw06aRkEp,u=1 password "123456" -S /opt/data/mysqld.sock
+2.mysql客户端登录后
 set password=password('A123456');
-or set password for  'root'@localhost=password('xxxxxx');
-flush privileges;
+或者/opt/mysql/bin/mysql -uroot -pA123456 -S /opt/data/mysqld.sock -e "set password=password('123456');"
+3.mysql客户端登录后执行SQL语句
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass4!';
+or
+set password for 'root'@'localhost'=password('xxxxxx');
+
+UPDATE user SET Password = PASSWORD('newpass') WHERE user = 'root';
+FLUSH PRIVILEGES;
 
 #远程登录
-grant all privileges on *.* to root@'%' identified by 'A123456';
+1.登录mysql后
+grant all privileges on *.* to root@'%' identified by '123456';
 flush privileges;
-or update user set host = '%' where user = 'root';
+2.update user set host = '%' where user = 'root';
+3.shell下
+/opt/mysql/bin/mysql -uroot -p123456 -S /opt/data/mysqld.sock -e "grant all privileges on *.* to 'root'@'%' identified by '123456';"
+/opt/mysql/bin/mysql -uroot -p123456 -S /opt/data/mysqld.sock -e "flush privileges;"
 
 #测试
 use mysql;

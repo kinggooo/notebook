@@ -9,7 +9,7 @@ sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 
 # 一般配置选项
 basedir=/opt/mysql
-datadir=/opt/mysql/data
+datadir=/opt/data
 port=3306
 socket=/var/run/mysqld/mysqld.sock
 character-set-server=utf8
