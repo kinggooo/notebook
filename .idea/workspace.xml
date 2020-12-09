@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d4b40128-2cf8-4f65-be99-bb8d64e2240b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/docker/dockerfile/mysql/利用docker快速构建MySQL主从复制环境.txt" afterDir="false" />
+    <list default="true" id="d4b40128-2cf8-4f65-be99-bb8d64e2240b" name="Default" comment="upd1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,13 +110,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1521768996860</updated>
-    </task>
-    <task id="LOCAL-00001" summary="upd">
-      <created>1521769110246</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1521769110246</updated>
     </task>
     <task id="LOCAL-00002" summary="upd">
       <created>1521769247028</created>
@@ -455,7 +447,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567157746758</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="upd1">
+      <created>1607424376535</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1607424376535</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -470,5 +469,15 @@
     <MESSAGE value="upd" />
     <MESSAGE value="upd1" />
     <option name="LAST_COMMIT_MESSAGE" value="upd1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="513" y="127" width="1259" height="890" key="CommitChangelistDialog2" timestamp="1607424376318">
+      <screen x="0" y="23" width="1872" height="1057" />
+    </state>
+    <state x="513" y="127" width="1259" height="890" key="CommitChangelistDialog2/0.23.1872.1057@0.23.1872.1057" timestamp="1607424376318" />
+    <state x="536" y="291" key="Vcs.Push.Dialog.v2" timestamp="1607424379282">
+      <screen x="0" y="23" width="1872" height="1057" />
+    </state>
+    <state x="536" y="291" key="Vcs.Push.Dialog.v2/0.23.1872.1057@0.23.1872.1057" timestamp="1607424379282" />
   </component>
 </project>
