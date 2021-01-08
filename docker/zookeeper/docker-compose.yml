@@ -1,0 +1,72 @@
+version: '3.1'
+
+services:
+  zoo1:
+    image: zookeeper
+    restart: always
+    privileged: true
+    hostname: zoo1
+    ports:
+      - 2184:2181
+    volumes: # 挂载数据
+      - /Volumes/data/wnz/tool/docker/zookeeper/zk4/data:/data
+      - /Volumes/data/wnz/tool/docker/zookeeper/zk4/datalog:/datalog
+      - /Volumes/data/wnz/tool/docker/zookeeper/zk4/logs:/logs
+    environment:
+      ZOO_MY_ID: 4
+      ZOO_SERVERS: server.4=0.0.0.0:2888:3888;2181 server.5=zoo2:2888:3888;2181 server.6=zoo3:2888:3888;2181
+    networks:
+      default:
+        ipv4_address: 172.18.0.14
+
+  zoo2:
+    image: zookeeper
+    restart: always
+    privileged: true
+    hostname: zoo2
+    ports:
+      - 2185:2181
+    volumes: # 挂载数据
+      - /Volumes/data/wnz/tool/docker/zookeeper/zk5/data:/data
+      - /Volumes/data/wnz/tool/docker/zookeeper/zk5/datalog:/datalog
+      - /Volumes/data/wnz/tool/docker/zookeeper/zk5/logs:/logs
+    environment:
+      ZOO_MY_ID: 5
+      ZOO_SERVERS: server.4=zoo1:2888:3888;2181 server.5=0.0.0.0:2888:3888;2181 server.6=zoo3:2888:3888;2181
+    networks:
+      default:
+        ipv4_address: 172.18.0.15
+
+  zoo3:
+    image: zookeeper
+    restart: always
+    privileged: true
+    hostname: zoo3
+    ports:
+      - 2186:2181
+    volumes: # 挂载数据
+      - /Volumes/data/wnz/tool/docker/zookeeper/zk6/data:/data
+      - /Volumes/data/wnz/tool/docker/zookeeper/zk6/datalog:/datalog
+      - /Volumes/data/wnz/tool/docker/zookeeper/zk6/logs:/logs
+    environment:
+      ZOO_MY_ID: 6
+      ZOO_SERVERS: server.4=zoo1:2888:3888;2181 server.5=zoo2:2888:3888;2181 server.6=0.0.0.0:2888:3888;2181
+    networks:
+      default:
+        ipv4_address: 172.18.0.16
+
+networks: # 自定义网络
+  default:
+    external:
+      name: zoonet
+
+
+
+
+
+
+
+
+
+
+
