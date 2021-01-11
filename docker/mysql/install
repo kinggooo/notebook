@@ -1,0 +1,96 @@
+#mysql 5.7.18 安装配置
+
+wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.18-linux-glibc2.5-x86_64.tar
+yum search libaio
+yum install libaio
+
+#把压缩包解压到/usr/local目录下，就是把MySQL安装在该目录下。
+tar -xzvf mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz -C /usr/local
+
+#切换到/usr/local,把刚才解压后的文件夹重命名为mysql。
+cd /usr/local
+mv mysql-5.7.17-linux-glibc2.5-x86_64 mysql
+
+#在mysql目录下创建data文件夹，用来存储MySQL的数据。
+cd mysql
+mkdir data
+
+#增加用户组mysql。
+groupadd mysql
+
+#增加用户名mysql属于mysql组。
+useradd -r -g mysql -s/bin/false mysql
+
+#修改mysql目录的拥有者和组。
+chown -R mysql:mysql ./
+
+#初始化MySQL，分两步：
+#第一步，bin/mysqld  注意后面给的参数，之一部会产生一个临时密码，保存，后面登录数据库要用到；
+sh ./bin/mysqld --initialize --user=mysql --basedir=/opt/mysql --datadir=/opt/mysql/data
+root@localhost: pf(4enAzc*Bx
+
+#第二步，bin/mysql_ssl_rsa_setup，看起来像是对数据库安全的处理，注意后面给的参数。
+./mysql_ssl_rsa_setup --datadir=/opt/mysql/data
+
+#切换到support-files目录
+cd support-files
+
+#把my-default.cnf拷贝到 /etc/my.cnf，注意CentOS7自带了一个my.cnf文件，覆盖掉。
+cp my-default.cnf /etc/my.cnf
+
+#把mysql.server文件拷贝到/etc/init.d/mysqld下，主要负责MySQL的开机启动。
+cp mysql.server /etc/init.d/mysqld
+
+#启动mysqld进程。
+./mysqld_safe --user=mysql &
+/etc/init.d/mysqld start
+service mysqld start
+
+#登录
+./mysql -u root -p -S /opt/mysql/run/mysqld.sock
+
+#修改默认密码
+1.mysqladmin -uroot -pw06aRkEp,u=1 password "123456" -S /opt/data/mysqld.sock
+2.mysql客户端登录后
+set password=password('A123456');
+或者/opt/mysql/bin/mysql -uroot -pA123456 -S /opt/data/mysqld.sock -e "set password=password('123456');"
+3.mysql客户端登录后执行SQL语句
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass4!';
+or
+set password for 'root'@'localhost'=password('xxxxxx');
+
+UPDATE user SET Password = PASSWORD('newpass') WHERE user = 'root';
+FLUSH PRIVILEGES;
+
+#远程登录
+1.登录mysql后
+grant all privileges on *.* to root@'%' identified by '123456';
+flush privileges;
+2.update user set host = '%' where user = 'root';
+3.shell下
+/opt/mysql/bin/mysql -uroot -p123456 -S /opt/data/mysqld.sock -e "grant all privileges on *.* to 'root'@'%' identified by '123456';"
+/opt/mysql/bin/mysql -uroot -p123456 -S /opt/data/mysqld.sock -e "flush privileges;"
+
+#测试
+use mysql;
+select host,user from user;
+
+
+#添加系统路径
+# vim /etc/profile
+添加：
+export PATH=/usr/local/mysql/bin:$PATH
+
+#每次登录mysql客户端嫌输绝对路径麻烦，就建一个软连接：
+ln -s  /opt/mysql/bin/mysql  /usr/bin/mysql,这样也省去了配PATH路径的麻烦。
+
+#mysqld的开机启动，使用chkconfig命令
+chmod 755 /etc/init.d/mysqld
+chkconfig --add mysqld #增加mysqld服务
+chkconfig --list    #列出所有的系统服务
+chkconfig --level 345 mysqld on
+#设定mysqld在等级345为开机运行服务
+
+#启动
+docker run --name mysql-server1 -v /Users/wangnz/data/mysql/mysql-server1:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root1234 -d daocloud.io/library/mysql:5.7.15
+docker run -it --link mysql-server1:mysql --rm daocloud.io/library/mysql:5.7.15 sh -c 'exec mysql -h"127.0.0.1" -P"3306" -uroot -p"root1234"'

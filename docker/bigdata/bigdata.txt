@@ -1,0 +1,30 @@
+
+
+yum -y install wget
+
+docker build -t bdbase .
+docker run -itd -h tmp1 -p 5022:22 --privileged --name tmp1 bdbase init
+docker run -itd -h tmp2 -p 5023:22 --privileged --name tmp2 bdbase init
+
+docker exec -it tmp1 /bin/bash
+docker exec -it tmp2 /bin/bash
+
+systemctl start sshd.service
+systemctl enable sshd.service
+
+netstat -an | grep 22
+
+docker build -t bd .
+docker run -it --name bd1 bdbase /bin/bash
+docker run -itd -h bd1 --name bd1 -p 5022:22 --privileged  bd init
+docker exec -it bd1 /bin/bash
+docker run -itd -h bd2 --name bd2 -p 5023:22 --privileged  bd init
+docker exec -it bd2 /bin/bash
+
+ssh-keygen -t rsa
+source install.sh
+
+http://mirror.bit.edu.cn/apache/hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFti1QbXcTeRlHm16pAZMBZnPOu/8mLiF9s4qHAd61wxd8bCTIAzyJFSNQjxwN/Tx3Sb5ippc9HSn1QlU0GfoeOd5CTJthBbhU0xQDy4obdmKLoI09Fd5H7R+cCRnyuSQt9SVgNYp8LoTHxP8ig1tMAqLnIb8911ntQU7j+o33EQvxhrF2zfCAKXl/JYoJNway6cMR3wJ9t23TNaTpx3kmyMS0nmoUbfUuP9cLvlE/Eu/o37nQw4Ycp4IukfqrktzFSy4Ws6lKOnoKHanp9dL0g9CLOXWNiDkBvJ02IUNUc1mjhFBA+BmKPsJxRujZdc7Bl7AKpzatLL+o0HWPYSRD root@bd1
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFti1QbXcTeRlHm16pAZMBZnPOu/8mLiF9s4qHAd61wxd8bCTIAzyJFSNQjxwN/Tx3Sb5ippc9HSn1QlU0GfoeOd5CTJthBbhU0xQDy4obdmKLoI09Fd5H7R+cCRnyuSQt9SVgNYp8LoTHxP8ig1tMAqLnIb8911ntQU7j+o33EQvxhrF2zfCAKXl/JYoJNway6cMR3wJ9t23TNaTpx3kmyMS0nmoUbfUuP9cLvlE/Eu/o37nQw4Ycp4IukfqrktzFSy4Ws6lKOnoKHanp9dL0g9CLOXWNiDkBvJ02IUNUc1mjhFBA+BmKPsJxRujZdc7Bl7AKpzatLL+o0HWPYSRD root@bd1

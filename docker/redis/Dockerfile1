@@ -1,0 +1,9 @@
+FROM kinggooo/supervisor
+MAINTAINER wangnz wangnz@email.com
+
+COPY ./supervisord.conf /opt/supervisord.conf
+ADD ./resources/redis-5.0.5.tar.gz /opt/
+EXPOSE 6379
+#ENV MONGO_HOME /opt/mongodb-linux-x86_64-4.0.9
+#ENV PATH ${PATH}:${MONGO_HOME}/bin
+CMD ["/usr/bin/supervisord","-c","/opt/supervisord.conf"]

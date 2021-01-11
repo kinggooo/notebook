@@ -2,8 +2,297 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4b40128-2cf8-4f65-be99-bb8d64e2240b" name="Default" comment="upd1">
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/COPYRIGHT" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/THIRDPARTYLICENSEREADME-JAVAFX.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/THIRDPARTYLICENSEREADME.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/Welcome.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/bin/ControlPanel" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/bin/java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/bin/jcontrol" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/bin/jjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/bin/keytool" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/bin/orbd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/bin/pack200" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/bin/policytool" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/bin/rmid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/bin/rmiregistry" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/bin/servertool" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/bin/tnameserv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/bin/unpack200" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/jli/libjli.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/jvm.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libavplugin-53.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libavplugin-54.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libavplugin-55.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libavplugin-56.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libavplugin-57.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libavplugin-ffmpeg-56.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libavplugin-ffmpeg-57.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libawt.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libawt_headless.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libawt_xawt.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libbci.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libdcpr.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libdeploy.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libdt_socket.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libfontmanager.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libglib-lite.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libhprof.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libinstrument.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libj2gss.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libj2pcsc.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libj2pkcs11.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libjaas_unix.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libjava.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libjava_crw_demo.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libjawt.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libjdwp.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libjfr.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libjpeg.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libjsdt.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libjsig.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libjsound.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libjsoundalsa.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libkcms.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/liblcms.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libmanagement.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libmlib_image.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libnet.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libnio.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libnpjp2.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libnpt.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libresource.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libsctp.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libsplashscreen.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libsunec.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libt2k.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libunpack.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libverify.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/libzip.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/server/Xusage.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/server/libjsig.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/server/libjvm.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/calendars.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/charsets.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/classlist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/cmm/CIEXYZ.pf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/cmm/GRAY.pf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/cmm/LINEAR_RGB.pf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/cmm/PYCC.pf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/cmm/sRGB.pf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/content-types.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/currency.data" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/ext/cldrdata.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/ext/dnsns.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/ext/jaccess.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/ext/localedata.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/ext/meta-index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/ext/nashorn.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/ext/sunec.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/ext/sunjce_provider.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/ext/sunpkcs11.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/ext/zipfs.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/flavormap.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fontconfig.RedHat.5.bfc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fontconfig.RedHat.5.properties.src" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fontconfig.RedHat.6.bfc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fontconfig.RedHat.6.properties.src" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fontconfig.SuSE.10.bfc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fontconfig.SuSE.10.properties.src" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fontconfig.SuSE.11.bfc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fontconfig.SuSE.11.properties.src" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fontconfig.Turbo.bfc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fontconfig.Turbo.properties.src" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fontconfig.bfc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fontconfig.properties.src" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fonts/LucidaBrightDemiBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fonts/LucidaBrightDemiItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fonts/LucidaBrightItalic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fonts/LucidaBrightRegular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fonts/LucidaSansDemiBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fonts/LucidaSansRegular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fonts/LucidaTypewriterBold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fonts/LucidaTypewriterRegular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/fonts/fonts.dir" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/hijrah-config-umalqura.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/images/cursors/cursors.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/images/cursors/invalid32x32.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/images/cursors/motif_CopyDrop32x32.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/images/cursors/motif_CopyNoDrop32x32.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/images/cursors/motif_LinkDrop32x32.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/images/cursors/motif_LinkNoDrop32x32.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/images/cursors/motif_MoveDrop32x32.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/images/cursors/motif_MoveNoDrop32x32.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/images/icons/sun-java.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/images/icons/sun-java_HighContrast.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/images/icons/sun-java_HighContrastInverse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/images/icons/sun-java_LowContrast.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/jce.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/jexec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/jfr.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/jfr/default.jfc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/jfr/profile.jfc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/jsse.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/jvm.hprof.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/locale/de/LC_MESSAGES/sunw_java_plugin.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/locale/es/LC_MESSAGES/sunw_java_plugin.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/locale/fr/LC_MESSAGES/sunw_java_plugin.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/locale/it/LC_MESSAGES/sunw_java_plugin.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/locale/ja/LC_MESSAGES/sunw_java_plugin.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/locale/ko.UTF-8/LC_MESSAGES/sunw_java_plugin.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/locale/ko/LC_MESSAGES/sunw_java_plugin.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/locale/pt_BR/LC_MESSAGES/sunw_java_plugin.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/locale/sv/LC_MESSAGES/sunw_java_plugin.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/locale/zh.GBK/LC_MESSAGES/sunw_java_plugin.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/locale/zh/LC_MESSAGES/sunw_java_plugin.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/locale/zh_HK.BIG5HK/LC_MESSAGES/sunw_java_plugin.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/locale/zh_TW.BIG5/LC_MESSAGES/sunw_java_plugin.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/locale/zh_TW/LC_MESSAGES/sunw_java_plugin.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/logging.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/management-agent.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/management/jmxremote.access" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/management/jmxremote.password.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/management/management.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/management/snmp.acl.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/meta-index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/net.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/oblique-fonts/LucidaSansDemiOblique.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/oblique-fonts/LucidaSansOblique.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/oblique-fonts/LucidaTypewriterBoldOblique.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/oblique-fonts/LucidaTypewriterOblique.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/oblique-fonts/fonts.dir" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/psfont.properties.ja" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/psfontj2d.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/resources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/rt.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/security/blacklist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/security/blacklisted.certs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/security/cacerts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/security/java.policy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/security/java.security" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/security/javaws.policy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/security/policy/limited/US_export_policy.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/security/policy/limited/local_policy.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/security/policy/unlimited/US_export_policy.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/security/policy/unlimited/local_policy.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/security/trusted.libraries" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/sound.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/lib/tzdb.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/java.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/javaws.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/jjs.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/keytool.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/orbd.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/pack200.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/policytool.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/rmid.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/rmiregistry.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/servertool.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/tnameserv.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/unpack200.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja_JP.UTF-8/man1/java.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja_JP.UTF-8/man1/javaws.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja_JP.UTF-8/man1/jjs.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja_JP.UTF-8/man1/keytool.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja_JP.UTF-8/man1/orbd.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja_JP.UTF-8/man1/pack200.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja_JP.UTF-8/man1/policytool.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja_JP.UTF-8/man1/rmid.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja_JP.UTF-8/man1/rmiregistry.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja_JP.UTF-8/man1/servertool.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja_JP.UTF-8/man1/tnameserv.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/ja_JP.UTF-8/man1/unpack200.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/man1/java.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/man1/javaws.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/man1/jjs.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/man1/keytool.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/man1/orbd.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/man1/pack200.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/man1/policytool.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/man1/rmid.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/man1/rmiregistry.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/man1/servertool.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/man1/tnameserv.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/man/man1/unpack200.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/java/jre/release" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/activemq/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/activemq/data/supervisord.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/activemq/memo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/activemq/supervisord.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/baseimages/Dockerfile_supervisor" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/baseimages/memo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/base/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/base/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/base/install_jdk.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/base/install_jdk.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/base/sshd_config" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/base/sshd_config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/bigdata.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/bigdata.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/conf/hadoop/core-site.xml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/conf/hadoop/core-site.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/conf/hadoop/hadoop-env.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/conf/hadoop/hadoop-env.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/conf/hadoop/hdfs-site.xml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/conf/hadoop/hdfs-site.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/conf/hadoop/mapred-env.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/conf/hadoop/mapred-env.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/conf/hadoop/mapred-site.xml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/conf/hadoop/mapred-site.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/conf/hadoop/yarn-site.xml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/conf/hadoop/yarn-site.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo/zoo1.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/conf/zoo/zoo1.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo/zoo2.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/conf/zoo/zoo2.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/conf/zoo/zoo3.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/conf/zoo/zoo3.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/hadoop/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/hadoop/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/hadoop/conf/core-site.xml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/hadoop/conf/core-site.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/hadoop/conf/hadoop-env.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/hadoop/conf/hadoop-env.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/hadoop/conf/hdfs-site.xml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/hadoop/conf/hdfs-site.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/hadoop/conf/mapred-env.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/hadoop/conf/mapred-env.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/hadoop/conf/mapred-site.xml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/hadoop/conf/mapred-site.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/hadoop/conf/yarn-site.xml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/hadoop/conf/yarn-site.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/hadoop/install_hadoop.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/hadoop/install_hadoop.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/install/install.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_hadoop.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/install/install_hadoop.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_jdk.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/install/install_jdk.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_mvn.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/install/install_mvn.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_scala.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/install/install_scala.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/install/install_zoo.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/install/install_zoo.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/bigdata/start/zoo_start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/bigdata/start/zoo_start.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/java/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/java/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/java/memo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/java/memo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mongodb/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mongodb/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mongodb/Dockerfile1" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mongodb/Dockerfile1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mongodb/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mongodb/config.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mongodb/memo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mongodb/memo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mongodb/mongod.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mongodb/mongod.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mongodb/mongodb.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mongodb/mongodb.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mongodb/supervisord.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mongodb/supervisord.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mysql/Dockerfile1" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/Dockerfile1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mysql/Dockerfile5.6" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/Dockerfile5.6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mysql/Dockerfile5.7" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/Dockerfile5.7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mysql/create_mysql/create_repl_db.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/create_mysql/create_repl_db.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mysql/create_mysql/create_single.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/create_mysql/create_single.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mysql/create_mysql/master.cnf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/create_mysql/master.cnf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mysql/create_mysql/slave.cnf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/create_mysql/slave.cnf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mysql/install" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/install" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mysql/install_mysql.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/install_mysql.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mysql/memo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/memo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mysql/my-default.cnf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/my-default.cnf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mysql/my.cnf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/my.cnf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mysql/mysql.cnf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/mysql.cnf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mysql/privileges.sql" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/privileges.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mysql/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mysql/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/setup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/mysql/利用docker快速构建MySQL主从复制环境.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mysql/利用docker快速构建MySQL主从复制环境.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/nginx/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/nginx/Dockerfile2" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/Dockerfile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/nginx/memo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/memo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/redis/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/redis/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/redis/Dockerfile1" beforeDir="false" afterPath="$PROJECT_DIR$/docker/redis/Dockerfile1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/redis/Dockerfile_alpine" beforeDir="false" afterPath="$PROJECT_DIR$/docker/redis/Dockerfile_alpine" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/redis/memo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/redis/memo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/redis/redis.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/redis/redis.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/redis/redis.conf.cn" beforeDir="false" afterPath="$PROJECT_DIR$/docker/redis/redis.conf.cn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/redis/supervisord.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/redis/supervisord.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/ssh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/ssh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/sshd/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/sshd/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/sshd/supervisord.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/sshd/supervisord.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/dockerfile/supervisor" beforeDir="false" afterPath="$PROJECT_DIR$/docker/supervisor" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,16 +337,16 @@
   </component>
   <component name="PropertiesComponent">
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docker/dockerfile/mysql/create_mysql" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docker" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docker" />
+      <recent name="$PROJECT_DIR$/docker/zookeeper" />
       <recent name="$PROJECT_DIR$/docker/dockerfile/mysql/create_mysql" />
       <recent name="$PROJECT_DIR$/docker/dockerfile/mysql" />
       <recent name="$PROJECT_DIR$/docker/dockerfile/bigdata/hadoop/conf" />
-      <recent name="$PROJECT_DIR$/docker/dockerfile/bigdata/base" />
-      <recent name="$PROJECT_DIR$/docker/dockerfile/bigdata/hadoop" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/docker/dockerfile/bigdata/base/resources" />
@@ -112,13 +401,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1521768996860</updated>
-    </task>
-    <task id="LOCAL-00004" summary="upd">
-      <created>1524817972986</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1524817972986</updated>
     </task>
     <task id="LOCAL-00005" summary="upd">
       <created>1524905324603</created>
@@ -456,13 +738,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608800866327</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="upd1">
+      <created>1610091437560</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1610091437560</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="Dockerfile" />
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.sh" />
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.conf" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="docker-compose.yml" />
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.cfg" />
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.sql" />
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.txt" />
@@ -473,14 +763,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="upd1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="513" y="127" width="1259" height="890" key="CommitChangelistDialog2" timestamp="1609751848932">
+    <state x="513" y="127" width="1259" height="890" key="CommitChangelistDialog2" timestamp="1610091437324">
       <screen x="0" y="23" width="1872" height="1057" />
     </state>
-    <state x="513" y="127" width="1259" height="890" key="CommitChangelistDialog2/0.23.1872.1057@0.23.1872.1057" timestamp="1609751848932" />
-    <state x="536" y="291" key="Vcs.Push.Dialog.v2" timestamp="1608800867935">
+    <state x="513" y="127" width="1259" height="890" key="CommitChangelistDialog2/0.23.1872.1057@0.23.1872.1057" timestamp="1610091437324" />
+    <state x="536" y="291" key="Vcs.Push.Dialog.v2" timestamp="1610091439148">
       <screen x="0" y="23" width="1872" height="1057" />
     </state>
-    <state x="536" y="291" key="Vcs.Push.Dialog.v2/0.23.1872.1057@0.23.1872.1057" timestamp="1608800867935" />
+    <state x="536" y="291" key="Vcs.Push.Dialog.v2/0.23.1872.1057@0.23.1872.1057" timestamp="1610091439148" />
     <state x="304" y="214" key="new project wizard" timestamp="1610088248606">
       <screen x="0" y="23" width="1872" height="1057" />
     </state>

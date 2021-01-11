@@ -1,0 +1,28 @@
+
+docker run -d -p 80:80 --name ng1 -v /home/wnz/nginx/html:/usr/share/nginx/html -v /home/wnz/nginx/conf/nginx.conf:/home/nginx/nginx.conf -v /home/wnz/nginx/conf/conf.d:/etc/nginx/conf.d -v /home/wnz/nginx/log:/var/log/nginx nginx
+docker run -d -p 80:80 --name ng2 -v /home/wnz/nginx/html:/usr/share/nginx/html -v /home/wnz/nginx/conf/nginx.conf:/home/nginx/nginx.conf nginx
+
+chcon -Rt svirt_sandbox_file_t /home/wnz/nginx/html
+chcon -Rt svirt_sandbox_file_t /home/wnz/nginx/conf/conf.d
+chcon -Rt svirt_sandbox_file_t /home/wnz/nginx/log
+
+
+
+
+docker run -d -p 80:80 -p 443:443 --name ngx1 -v /home/wangnz/data/nginx:/opt/nginx -v /home/wangnz/data/nginx/nginx.conf:/etc/nginx/nginx.conf kinggooo/nginx
+docker run -d -p 80:80 -p 8081:8081 -p 443:443 --name ngx2 -v /home/wangnz/data/nginx:/opt/nginx -v /home/wangnz/data/nginx/nginx.conf:/etc/nginx/nginx.conf nginx
+docker run -d -p 8081:80 --name ngx2  -v /home/wangnz/data/nginx:/opt/nginx -v /home/wangnz/data/nginx/nginx.conf:/etc/nginx/nginx.conf kinggooo/nginx
+
+
+
+
+
+*******************************命令*******************************
+查看Nginx的版本号：nginx -V
+启动Nginx：start nginx
+快速停止或关闭Nginx：nginx -s stop
+正常停止或关闭Nginx：nginx -s quit
+配置文件修改重装载命令：nginx -s reload
+nginx -c ../nginx.conf 指定目录配置文件启动
+nginx -t -c ../nginx.conf 检测指定目录配置文件
+nginx https://nginx.org/download/nginx-1.12.0.tar.gz

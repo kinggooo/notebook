@@ -1,3 +1,0 @@
-FROM frolvlad/alpine-glibc
-MAINTAINER wangnz wangnz@email.com
-RUN apk --update add supervisor
