@@ -1,5 +1,4 @@
 version: '3.1'
-
 services:
   zoo1:
     image: zookeeper
@@ -18,7 +17,6 @@ services:
     networks:
       default:
         ipv4_address: 172.18.0.14
-
   zoo2:
     image: zookeeper
     restart: always
@@ -36,7 +34,6 @@ services:
     networks:
       default:
         ipv4_address: 172.18.0.15
-
   zoo3:
     image: zookeeper
     restart: always
@@ -54,7 +51,6 @@ services:
     networks:
       default:
         ipv4_address: 172.18.0.16
-
 networks: # 自定义网络
   default:
     external:

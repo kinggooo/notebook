@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4b40128-2cf8-4f65-be99-bb8d64e2240b" name="Default" comment="upd1">
-      <change beforePath="$PROJECT_DIR$/docker/java/jre/bin/ControlPanel" beforeDir="false" afterPath="$PROJECT_DIR$/docker/java/jre/bin/ControlPanel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/java/jre/lib/amd64/server/libjsig.so" beforeDir="false" afterPath="$PROJECT_DIR$/docker/java/jre/lib/amd64/server/libjsig.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/java.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/javaws.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/jjs.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/keytool.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/orbd.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/pack200.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/policytool.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/rmid.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/rmiregistry.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/servertool.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/tnameserv.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/java/jre/man/ja/man1/unpack200.1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/zookeeper/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/zookeeper/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/zookeeper/docker-compose1.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/zookeeper/docker-compose1.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,27 +114,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1521768996860</updated>
-    </task>
-    <task id="LOCAL-00008" summary="upd">
-      <created>1527486447358</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1527486447358</updated>
-    </task>
-    <task id="LOCAL-00009" summary="upd">
-      <created>1534831752984</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1534831752984</updated>
-    </task>
-    <task id="LOCAL-00010" summary="upd">
-      <created>1534841407859</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1534841407859</updated>
     </task>
     <task id="LOCAL-00011" summary="upd">
       <created>1534844901502</created>
@@ -469,7 +437,28 @@
       <option name="project" value="LOCAL" />
       <updated>1610349121145</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="upd1">
+      <created>1610349172526</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1610349172526</updated>
+    </task>
+    <task id="LOCAL-00058" summary="upd1">
+      <created>1610349189991</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1610349189992</updated>
+    </task>
+    <task id="LOCAL-00059" summary="upd1">
+      <created>1610349407641</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1610349407641</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -487,10 +476,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="upd1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="513" y="127" width="1259" height="890" key="CommitChangelistDialog2" timestamp="1610349119112">
+    <state x="513" y="127" width="1259" height="890" key="CommitChangelistDialog2" timestamp="1610349692595">
       <screen x="0" y="23" width="1872" height="1057" />
     </state>
-    <state x="513" y="127" width="1259" height="890" key="CommitChangelistDialog2/0.23.1872.1057@0.23.1872.1057" timestamp="1610349119112" />
+    <state x="513" y="127" width="1259" height="890" key="CommitChangelistDialog2/0.23.1872.1057@0.23.1872.1057" timestamp="1610349692595" />
     <state x="0" y="23" width="1871" height="1057" key="DiffContextDialog" timestamp="1610348389706">
       <screen x="0" y="23" width="1872" height="1057" />
     </state>
@@ -499,10 +488,10 @@
       <screen x="0" y="23" width="1872" height="1057" />
     </state>
     <state x="867" y="281" key="RollbackChangesDialog/0.23.1872.1057@0.23.1872.1057" timestamp="1610348467315" />
-    <state x="536" y="291" key="Vcs.Push.Dialog.v2" timestamp="1610349123008">
+    <state x="536" y="291" key="Vcs.Push.Dialog.v2" timestamp="1610349408978">
       <screen x="0" y="23" width="1872" height="1057" />
     </state>
-    <state x="536" y="291" key="Vcs.Push.Dialog.v2/0.23.1872.1057@0.23.1872.1057" timestamp="1610349123008" />
+    <state x="536" y="291" key="Vcs.Push.Dialog.v2/0.23.1872.1057@0.23.1872.1057" timestamp="1610349408978" />
     <state x="304" y="214" key="new project wizard" timestamp="1610088248606">
       <screen x="0" y="23" width="1872" height="1057" />
     </state>
