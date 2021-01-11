@@ -1,1 +1,1 @@
-docker-compose -f docker-compose-zookeeper-cluster.yml up -d
+docker-compose -f dc_zoo2.yml up -d
