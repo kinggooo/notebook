@@ -1,1 +1,16 @@
 docker-compose -f dc_kafka1.yml up -d
+
+docker run -itd --name=kafka-manager -p 9000:9000 -e ZK_HOSTS="192.168.220.150:2181" sheepkiller/kafka-manager
+
+cd /opt/kafka/   # 进入安装目录
+/opt/kafka/bin/kafka-topics.sh --zookeeper zoo1:2181,zoo2:2181,zoo3:2181 --list    # 查看主题列表
+/opt/kafka/bin/kafka-topics.sh --zookeeper zoo1:2181,zoo2:2181,zoo3:2181 --describe --topic test #查看主题
+
+/opt/kafka/bin/kafka-topics.sh --create --zookeeper zoo1:2181,zoo2:2181,zoo3:2181 --replication-factor 1 --partitions 3 --topic test1    # 新建主题
+/opt/kafka/bin/kafka-topics.sh --delete --zookeeper zoo1:2181,zoo2:2181,zoo3:2181 --topic test
+
+/opt/kafka/bin/kafka-console-producer.sh --broker-list kafka1:9092 --topic=test1  #生产
+
+/opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server kafka1:9092 --from-beginning --topic test1 #消费
+
+
