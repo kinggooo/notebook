@@ -1,0 +1,14 @@
+下载镜像
+docker pull consul
+检查镜像
+docker images -f 'reference=consul'
+
+docker run -d -p 8501:8500 -p 8601:8600/udp --name=mycsl consul agent -server -ui -node=server-1 -bootstrap-expect=1 -client=0.0.0.0
+
+docker run -d -p 8502:8500 -p 8602:8600/udp --name=mycsl2 consul agent -dev -ui -client=0.0.0.0
+
+consul agent -dev
+
+consul agent -server -bootstrap-expect 1 -data-dir=/Volumes/data/wnz/tool/consul/data/ -ui -bind=0.0.0.0 -config-dir=/Volumes/data/wnz/tool/consul/conf/
+
+consul agent -server -config-dir=/Volumes/data/wnz/tool/consul/conf/
