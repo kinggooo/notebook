@@ -1,0 +1,21 @@
+#docker-compose up -d
+#docker-compose logs -f
+
+version: '3.7'
+services:
+  web:
+    image: 'gitlab/gitlab-ee:latest'
+    restart: always
+    hostname: '172.30.67.116'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://172.30.67.116'
+        # Add any other gitlab.rb configuration here, each on its own line
+    ports:
+      - '10080:80'
+      - '8443:443'
+      - '2222:22'
+    volumes:
+      - ./data/data:/var/opt/gitlab
+      - ./data/log:/var/log/gitlab
+      - ./data/config:/etc/gitlab

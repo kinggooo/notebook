@@ -1,0 +1,32 @@
+#docker-compose up -d
+#docker-compose logs -f
+
+version: '3.7'
+services:
+  gitlab:
+    image: "gitlab-ce:latest"
+    restart: always
+#    container_name: 'gitlab'
+    hostname: '172.30.67.116'
+    privileged: true
+    ports:
+      - "7001:443"
+      - "7002:80"
+      - "7003:22"
+      # postgresql 端口
+      #- "15432:5432"
+    volumes:
+      - ./data/data:/var/opt/gitlab
+      - ./data/log:/var/log/gitlab
+      - ./data/config:/etc/gitlab
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        # 仓库路径, 填写宿主机的域名或 IP
+        external_url 'http://172.30.67.116:7002'
+#        # 调整工作进程数减小内存占用，最小为 2
+#        #unicorn['worker_processes'] = 2
+#        gitlab_rails['time_zone'] = 'Asia/Shanghai'
+#      GITLAB_BACKUPS: "daily"
+#      GITLAB_SIGNUP: "true"
+#      GITLAB_ROOT_PASSWORD: "lb80h&85"
+#      GITLAB_GRAVATAR_ENABLED: "true"
