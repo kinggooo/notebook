@@ -11,7 +11,7 @@
 
 #非root用户使用docker
 sudo groupadd docker
-sudo gpasswd -a ${USER} docker
+sudo gpasswd -a ${USER} docker // 如果不行执行 newgrp docker
 sudo systemctl restart docker
 
 docker pull ubuntu
@@ -38,6 +38,7 @@ cat ubuntu.tar.gz | docker import - ubuntu:14.04
 
 docker save -o centos7.tar centos7
 docker load < centos7.tar
+docker load -i centos7.tar
 
 docker tag test1:latest user/test1:latest
 docker push user/test1:latest

@@ -4,13 +4,12 @@ CONTAINER_NAME=gitlab
 
 #docker stop $CONTAINER_NAME
 #docker rm $CONTAINER_NAME
-
-sudo docker run -d \
+docker run -d \
   --hostname $HOST_NAME \
-  -p 443:443 -p 80:80 -p 22:22 \
+  -p 8443:443 -p 10080:80 -p 2222:22 \
   --name $CONTAINER_NAME \
   --restart always \
   -v $GITLAB_DIR/config:/etc/gitlab \
   -v $GITLAB_DIR/logs:/var/log/gitlab \
   -v $GITLAB_DIR/data:/var/opt/gitlab \
-  gitlab/gitlab-ce:latest
+  gitlab/gitlab-ee:latest

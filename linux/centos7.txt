@@ -1,5 +1,5 @@
-###########################################################################
-#设置静态IP
+##################################设置静态IP##########################################
+
 用ip addr 查看本地ip
 cd /etc/sysconfig/network-scripts/
 vi ifcfg-ens33
@@ -7,8 +7,6 @@ vi ifcfg-ens33
 编辑
 TYPE=Ethernet
 BOOTPROTO=static
-DNS1=192.168.182.2
-DNS2=201.96.209.133
 DEFROUTE=yes
 PEERDNS=yes
 PEERROUTES=yes
@@ -16,6 +14,8 @@ IPV4_FAILURE_FATAL=no
 IPV6INIT=no
 IPV6_AUTOCONF=no
 IPV6_DEFROUTE=no
+IPV6_PEERDNS=no
+IPV6_PEERROUTES=no
 IPV6_FAILURE_FATAL=no
 NAME=ens33
 UUID=aaaee87a-15e5-4052-9358-7866636db1c1
@@ -23,35 +23,50 @@ DEVICE=ens33
 ONBOOT=yes
 NM_CONTROLLED=no
 
+#静态IP地址，根据自己电脑VMnet8的IP修改，我的VMnet8是192.168.197.1，所以将1改为其他即可
 IPADDR=192.168.182.129
-PREFIX=24
+NETMASK=255.255.255.0
 GATEWAY=192.168.182.2
-IPV6_PEERDNS=no
-IPV6_PEERROUTES=no
+DNS1=192.168.182.2
+DNS2=201.96.209.133
+PREFIX=24
+#HWADDR=00:0c:29:02:42:aa(在自己虚拟机上输入命令ip addr即可看到自己的，填上自己的)
 
 
 
 输入service network restart重启服务,亦可输入systemctl restart netwrok
+#安装网络工具
+yum install net-tools -y
+#安装perl支持 vmwaretool必须
+yum groupinstall "Perl Support"
+
 ###########################################################################
 
-*******************************新增用户*******************************
+*******************************新增用户和组*******************************
+#新增用户
 adduser wangnz
+#修改密码
 passwd wangnz
 
 whereis sudoers
 
+ls -l /etc/sudoers
+$ chmod -v u+w /etc/sudoers
+
+groupadd dev //新建test工作组
+useradd -g test phpq //新建phpq用户并增加到test工作组
+usermod -G groupname username 或者：gpasswd -a user group //给已有的用户增加工作组
+用户列表文件：/etc/passwd
+用户组列表文件：/etc/group
+查看系统中有哪些用户：cut -d : -f 1 /etc/passwd
+查看可以登录系统的用户：cat /etc/passwd | grep -v /sbin/nologin | cut -d : -f 1
+查看某一用户：w 用户名
+查看登录用户：who
+查看用户登录历史记录：last
 
 *******************************地址*******************************
 148.70.47.196
 45.77.161.133
-
-
-
-
-
-
-
-
 *******************************防火墙firewalld设置*******************************
 #安装防火墙
 yum install firewalld firewalld-config
@@ -82,11 +97,11 @@ systemctl start firewalld.service
 systemctl disable firewalld.service
 systemctl enable firewalld.service
 
-#放开http服务 
+#放开http服务
 firewall-cmd --zone=public --add-service=http --permanent
 firewall-cmd --zone=public --add-service=https --permanent
 
-#重新加载设置 
+#重新加载设置
 firewall-cmd --reload
 
 #查看端口
@@ -104,3 +119,20 @@ sudo firewall-cmd --reload
 或者用容器间通信机制不用iptable
 修改/etc/sysconfig/docker里的OPTIONS增加--iptables=false，重启docker服务，再启动redis，顺利开启。
 *******************************防火墙firewalld设置*******************************
+
+*******************************mac上传下载文件*******************************
+scp username@servername:/path/filename /Users/mac/Desktop（本地目录）
+scp /path/filename username@servername:/path
+
+scp -r username@servername:/root/（远程目录） /Users/mac/Desktop（本地目录）
+scp -r local_dir username@servername:remote_dir
+*******************************mac上传下载文件*******************************
+*******************************关机*******************************
+shutdown -h 10 #计算机将于10分钟后关闭，且会显示在登录用户的当前屏幕中
+shutdown -h now    #计算机会立刻关机
+shutdown -h 22:22   #计算机会在这个时刻关机
+shutdown -r now    #计算机会立刻重启
+shutdown -r +10     #计算机会将于10分钟后重启
+reboot      #重启
+halt    #关机
+*******************************关机*******************************
