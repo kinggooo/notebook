@@ -1,0 +1,49 @@
+public static final String STOCK_LUA;
+
+static {
+    StringBuilder sb = new StringBuilder();
+    sb.append("if (redis.call('exists', KEYS[1]) == 1) then");
+    sb.append("    local totalVal = tonumber(redis.call('get', KEYS[1]));");
+    sb.append("    local num = tonumber(ARGV[1]);");
+    sb.append("    if (totalVal <= 0) then");
+    sb.append("        return -1;");
+    sb.append("    end;");
+    sb.append("    if (totalVal >= num) then");
+    sb.append("        return redis.call('incrby', KEYS[1], 0 - num);");
+    sb.append("    end;");
+    sb.append("    return -2;");
+    sb.append("end;");
+    sb.append("return -3;");
+    STOCK_LUA = sb.toString();
+}
+
+    @GetMapping("testCache")
+    public void testCache(String activityId, String accountCode, String boostAccoutCode) {
+//        // 脚本里的KEYS参数
+//        List<String> keys = new ArrayList<>();
+//        String cacheKey = StringUtils.join(BOOST_ACT_WARN, "activityId", ":", "totalVal");
+//        keys.add(cacheKey);
+//        // 脚本里的ARGV参数
+//        List<String> args = new ArrayList<>();
+//        args.add(num);
+//
+//        long result = redisTemplate.execute(new RedisCallback<Long>() {
+//            @Override
+//            public Long doInRedis(RedisConnection connection) throws DataAccessException {
+//                Object nativeConnection = connection.getNativeConnection();
+//                // 集群模式和单机模式虽然执行脚本的方法一样，但是没有共同的接口，所以只能分开执行
+//                // 集群模式
+//                if (nativeConnection instanceof JedisCluster) {
+//                    return (Long) ((JedisCluster) nativeConnection).eval(STOCK_LUA, keys, args);
+//                }
+//
+//                // 单机模式
+//                else if (nativeConnection instanceof Jedis) {
+//                    return (Long) ((Jedis) nativeConnection).eval(STOCK_LUA, keys, args);
+//                }
+//                return Long.valueOf(-1);
+//            }
+//        });
+//        System.out.println(result);
+
+    }

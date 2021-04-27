@@ -2,36 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4b40128-2cf8-4f65-be99-bb8d64e2240b" name="Default" comment="upd1">
-      <change afterPath="$PROJECT_DIR$/docker/kafka/dc_kafka_cluster.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/redis.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/kafka/dc_kafka1.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/kafka/dc_kafka1.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/kafka/memo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/kafka/memo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/zookeeper/memo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/zookeeper/memo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/gitlab/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/gitlab/start.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>nginx</find>
-      <find>docker build</find>
-      <find>docker push</find>
-      <find>var</find>
-      <find>dir</find>
-      <find>logfile</find>
-      <find>jdk</find>
-      <find>wget</find>
-      <find>JAVA_HOME</find>
-      <find>`</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>'</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>$PROJECT_DIR$/docker/dockerfile/baseimages</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,8 +31,8 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docker/kafka" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docker/gitlab/ymls" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -61,11 +40,11 @@
       <recent name="$PROJECT_DIR$/docker/dockerfile/bigdata/conf" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docker/gitlab/ymls" />
+      <recent name="$PROJECT_DIR$/docker/gitlab" />
+      <recent name="$PROJECT_DIR$/docker/jenkins/ymls" />
+      <recent name="$PROJECT_DIR$/docker/jenkins" />
       <recent name="$PROJECT_DIR$/docker/kafka" />
-      <recent name="$PROJECT_DIR$/docker/zookeeper" />
-      <recent name="$PROJECT_DIR$/docker" />
-      <recent name="$PROJECT_DIR$/docker/dockerfile/mysql/create_mysql" />
-      <recent name="$PROJECT_DIR$/docker/dockerfile/mysql" />
     </key>
   </component>
   <component name="RunManager">
@@ -116,41 +95,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1521768996860</updated>
-    </task>
-    <task id="LOCAL-00013" summary="upd">
-      <created>1537512386967</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1537512386967</updated>
-    </task>
-    <task id="LOCAL-00014" summary="upd">
-      <created>1538015068995</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1538015068995</updated>
-    </task>
-    <task id="LOCAL-00015" summary="upd">
-      <created>1538049088525</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1538049088525</updated>
-    </task>
-    <task id="LOCAL-00016" summary="upd">
-      <created>1538049324667</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1538049324667</updated>
-    </task>
-    <task id="LOCAL-00017" summary="upd">
-      <created>1538049572911</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1538049572911</updated>
     </task>
     <task id="LOCAL-00018" summary="upd">
       <created>1539679352137</created>
@@ -460,7 +404,42 @@
       <option name="project" value="LOCAL" />
       <updated>1610358862659</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="upd1">
+      <created>1610611889942</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1610611889943</updated>
+    </task>
+    <task id="LOCAL-00063" summary="upd1">
+      <created>1616034533976</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1616034533976</updated>
+    </task>
+    <task id="LOCAL-00064" summary="upd1">
+      <created>1616046414995</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1616046414995</updated>
+    </task>
+    <task id="LOCAL-00065" summary="upd1">
+      <created>1616136810578</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1616136810578</updated>
+    </task>
+    <task id="LOCAL-00066" summary="upd1">
+      <created>1616375877055</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1616375877056</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -478,10 +457,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="upd1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="513" y="127" width="1259" height="890" key="CommitChangelistDialog2" timestamp="1610358862530">
+    <state x="229" y="87" width="1259" height="890" key="CommitChangelistDialog2" timestamp="1616375876867">
       <screen x="0" y="23" width="1872" height="1057" />
     </state>
-    <state x="513" y="127" width="1259" height="890" key="CommitChangelistDialog2/0.23.1872.1057@0.23.1872.1057" timestamp="1610358862530" />
+    <state x="229" y="87" width="1259" height="890" key="CommitChangelistDialog2/0.23.1872.1057@0.23.1872.1057" timestamp="1616375876867" />
     <state x="0" y="23" width="1871" height="1057" key="DiffContextDialog" timestamp="1610348389706">
       <screen x="0" y="23" width="1872" height="1057" />
     </state>
@@ -490,10 +469,18 @@
       <screen x="0" y="23" width="1872" height="1057" />
     </state>
     <state x="867" y="281" key="RollbackChangesDialog/0.23.1872.1057@0.23.1872.1057" timestamp="1610348467315" />
-    <state x="536" y="291" key="Vcs.Push.Dialog.v2" timestamp="1610358864057">
+    <state x="483" y="156" key="SettingsEditor" timestamp="1611803874771">
       <screen x="0" y="23" width="1872" height="1057" />
     </state>
-    <state x="536" y="291" key="Vcs.Push.Dialog.v2/0.23.1872.1057@0.23.1872.1057" timestamp="1610358864057" />
+    <state x="483" y="156" key="SettingsEditor/0.23.1872.1057@0.23.1872.1057" timestamp="1611803874771" />
+    <state x="536" y="291" key="Vcs.Push.Dialog.v2" timestamp="1616046416956">
+      <screen x="0" y="23" width="1872" height="1057" />
+    </state>
+    <state x="536" y="291" key="Vcs.Push.Dialog.v2/0.23.1872.1057@0.23.1872.1057" timestamp="1616046416956" />
+    <state x="634" y="306" width="1113" height="490" key="find.popup" timestamp="1616380902554">
+      <screen x="0" y="23" width="1872" height="1057" />
+    </state>
+    <state x="634" y="306" width="1113" height="490" key="find.popup/0.23.1872.1057@0.23.1872.1057" timestamp="1616380902554" />
     <state x="304" y="214" key="new project wizard" timestamp="1610088248606">
       <screen x="0" y="23" width="1872" height="1057" />
     </state>

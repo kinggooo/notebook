@@ -209,6 +209,9 @@ $ docker top birdben/ubuntu:v1
 
 # 从容器里面拷贝文件/目录到本地一个路径
 $ docker cp ID:/container_path to_path
+docker cp tomcat7:/home/wangnz/a.txt ./a.txt
+# 从本地一个路径拷贝文件/目录到容器里面
+docker cp ./a.txt tomcat7:/home/wangnz/a.txt
 
 # 列出当前所有正在运行的容器
 $ docker ps
